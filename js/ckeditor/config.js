@@ -14,7 +14,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'tools' },
 		{ name: 'styles' },
 		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
-	{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+	    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align' ] },	
 		{ name: 'links' },
 		{ name: 'others' },
@@ -24,8 +24,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// need to have in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript';
 	config.language = 'en';
-	config.extraPlugins = 'pbcode';
-	config.pbcode  = {
+	config.extraPlugins = 'pbckcode';
+	config.pbckcode  = {
 		'mode' : [ ['PHP', 'php'], ['HTML', 'html'], ['CSS', 'css'] ],
 	};
 }; 

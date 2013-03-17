@@ -6,3 +6,7 @@ pre {
 	padding: 8px;
 
 }
+
+a.cke_button {
+	height: auto !important;
+}

@@ -1,41 +1,33 @@
 CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
 
-// load JS file
-var head = document.getElementsByTagName('HEAD').item(0);
-var script= document.createElement("script");
-script.type = "text/javascript";
-script.src = CKEDITOR.plugins.getPath('pbckcode') + "dialogs/ace/ace.js";
-head.appendChild(script);
-
-// load CSS file
-var link  = document.createElement('link');
-link.rel  = 'stylesheet';
-link.type = 'text/css';
-link.href = CKEDITOR.plugins.getPath('pbckcode') + "dialogs/style.css";
-link.media = 'all';
-head.appendChild(link);
-
+// if there is no user settings
+// create an empty object
 if(editor.config.pbckcode == undefined)
 	editor.config.pbckcode = {};
 
-// default values of the plugin
-if(editor.config.pbckcode.cls == undefined)
-	editor.config.pbckcode.cls = "prettyprint linenums";
-if(editor.config.pbckcode.modes == undefined)
-	editor.config.pbckcode.modes =  [ ['PHP', 'php'], ['HTML', 'html'], ['CSS', 'css'], ['JS', 'javascript'] ]
-if(editor.config.pbckcode.defaultMode == undefined)
-	editor.config.pbckcode.defaultMode =  editor.config.pbckcode.modes[0][1];
-if(editor.config.pbckcode.theme == undefined)
-	editor.config.pbckcode.theme = 'textmate';
+// default settings object
+DEFAULT_SETTINGS = {
+	cls         : '',
+	modes       :  [ ['HTML', 'html'],['PHP', 'php'], ['CSS', 'css'], ['JS', 'javascript'] ],
+	theme       : 'textmate',
+	highlighter : 'PRISM',
+};
 
-var AceEditor;
+// merge user settings with default settings
+settings = merge_settings(DEFAULT_SETTINGS, editor.config.pbckcode);
 
+// init vars
+var AceEditor,
+    shighlighter = new SyntaxHighlighter(settings.highlighter);
+
+
+
+// dialog code
 return {
 		// Basic properties of the dialog window: title, minimum size.
 		title: editor.lang.pbckcode.title,
 		minWidth: 600,
 		minHeight: 400,
-
 		// Dialog window contents definition.
 		contents:
 		[{
@@ -45,8 +37,8 @@ return {
 			[{
 				type    : 'select',
 				id      : 'code-select',
-				items   : editor.config.pbckcode.modes,
-				default : editor.config.pbckcode.defaultMode,
+				items   : settings.modes,
+				default : settings.modes[0][1],
 				setup   : function(element) {
 					this.setValue(element.getAttribute("data-language"));
 				},
@@ -86,11 +78,11 @@ return {
 
 			// we load the ACE plugin to our div
 			AceEditor = ace.edit("code");
-			AceEditor.getSession().setMode("ace/mode/" + editor.config.pbckcode.defaultMode);
-			AceEditor.setTheme("ace/theme/" + editor.config.pbckcode.theme);
+			AceEditor.getSession().setMode("ace/mode/" + settings.modes[0][1]);
+			AceEditor.setTheme("ace/theme/" + settings.theme);
 		},
 		onShow : function() {
-			// get the select
+			// get the selection
 			var selection = editor.getSelection();
 			// get the entire element
 			var element = selection.getStartElement();
@@ -102,6 +94,7 @@ return {
 			// if there is no pre tag, it is an addition. Therefore, it is an edition
 			if(!element || element.getName() != 'pre') {
 				element = editor.document.createElement('pre');
+
 				this.insertMode = true;
 			}
 			else
@@ -122,17 +115,36 @@ return {
 			var dialog = this,
 				pre = this.element;
 
-			// we get the value of the inputs
 			this.commitContent(pre);
+
+			// set the full class to the pre tag
+			shighlighter.setClass(this.element.getAttribute("data-language") + " " + settings.cls);
 
 			// we add a new pre tag into ckeditor editor
 			if(this.insertMode) {
-				pre.setAttribute('class', editor.config.pbckcode.cls);
+				pre.setAttribute('class', shighlighter.getClass());
 				editor.insertElement(pre);
 			}
 
 		}
 	};
-
-
 });
+
+/**
+ * Overwrites obj1's values with obj2's and adds obj2's if non existent in obj1
+ * @param obj1
+ * @param obj2
+ * @returns obj3 a new object based on obj1 and obj2
+ */
+/**
+ * Merge defaults settings with user settings
+ * @param  {Object} dft the default object
+ * @param  {Object} usr the user object
+ * @return {Object} the merged object
+ */
+function merge_settings(dft, usr){
+    var obj3 = {};
+    for (var attrname in dft) { obj3[attrname] = dft[attrname]; }
+    for (var attrname in usr) { obj3[attrname] = usr[attrname]; }
+    return obj3;
+}

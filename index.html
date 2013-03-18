@@ -9,8 +9,7 @@
 	<link rel="stylesheet" href="css/normalize.css" />
 	<link rel="stylesheet" href="css/foundation.css" />
 	<link rel="stylesheet" href="css/demo.css" />
-
-	<script src="js/vendor/custom.modernizr.js"></script>
+	<link rel="stylesheet" href="js/highlighter/google-code-prettify/prettify.css" />
 </head>
 <body>
 	<nav class="top-bar">
@@ -52,10 +51,18 @@
 		</div>
 		<div class="small-6 columns">
 			<h6>Configuration</h6>
-			<pre class="config code">
+			<pre class="prettyprint linenums">
 CKEDITOR.editorConfig = function( config ) {
-    config.toolbarGroups = [{ name: 'others' }];
-    config.extraPlugins = 'pbckcode';
+    config.toolbarGroups = [
+        // shows the source button
+        { name: 'document', groups: [ 'mode'] },
+        // shows the pbckcode button
+        { name: 'others' }
+    ];
+    config.extraPlugins = 'pbckcode,onchange';
+    config.pbckcode = {
+        highlighter : "PRETTIFY"
+    };
 };
 			</pre>
 		</div>
@@ -71,7 +78,7 @@ CKEDITOR.editorConfig = function( config ) {
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="js/foundation/foundation.min.js"></script>
 	<script src="js/ckeditor/ckeditor.js"></script>
-	<script src="js/ckeditor/config.js"></script>
+	<script src="js/highlighter/google-code-prettify/prettify.js"></script>
 	<script src="js/demo.js"></script>
 </body>
 </html>

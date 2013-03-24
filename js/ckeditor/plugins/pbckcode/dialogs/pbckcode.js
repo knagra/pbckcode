@@ -40,10 +40,10 @@ return {
 				items   : settings.modes,
 				default : settings.modes[0][1],
 				setup   : function(element) {
-					this.setValue(element.getAttribute("data-language"));
+					this.setValue(element.getAttribute("data-pbcklang"));
 				},
 				commit : function(element) {
-					element.setAttribute("data-language", this.getValue());
+					element.setAttribute("data-pbcklang", this.getValue());
 				},
 				onChange: function(api) {
 					AceEditor.getSession().setMode("ace/mode/" + this.getValue());
@@ -89,17 +89,17 @@ return {
 
 			// looking for the pre parent tag
 			if(element)
-				element = element.getAscendant('pre', true);
+				element = element.getAscendant(shighlighter.getTag(), true);
 
 			// if there is no pre tag, it is an addition. Therefore, it is an edition
-			if(!element || element.getName() != 'pre') {
-				element = editor.document.createElement('pre');
+			if(!element || element.getName() != shighlighter.getTag()) {
+				element = editor.document.createElement(shighlighter.getTag());
 
 				this.insertMode = true;
 			}
-			else
+			else {
 				this.insertMode = false;
-
+			}
 			// get the element to fill the inputs
 			this.element = element;
 
@@ -117,12 +117,12 @@ return {
 
 			this.commitContent(pre);
 
-			// set the full class to the pre tag
-			shighlighter.setClass(this.element.getAttribute("data-language") + " " + settings.cls);
+			// set the full class to the code tag
+			shighlighter.setCls(this.element.getAttribute("data-pbcklang") + " " + settings.cls);
 
-			// we add a new pre tag into ckeditor editor
+			// we add a new code tag into ckeditor editor
 			if(this.insertMode) {
-				pre.setAttribute('class', shighlighter.getClass());
+				pre.setAttribute('class', shighlighter.getCls());
 				editor.insertElement(pre);
 			}
 
@@ -130,12 +130,7 @@ return {
 	};
 });
 
-/**
- * Overwrites obj1's values with obj2's and adds obj2's if non existent in obj1
- * @param obj1
- * @param obj2
- * @returns obj3 a new object based on obj1 and obj2
- */
+
 /**
  * Merge defaults settings with user settings
  * @param  {Object} dft the default object

@@ -21,9 +21,8 @@ var SyntaxHighlighter = (function(){
 				break;
 			default :
 				this._sh = {
-					name  : "Default",
 					type  : "DEFAULT",
-					class : "",
+					cls : "",
 					tag   : 'pre'
 				}
 				break;
@@ -50,26 +49,24 @@ var SyntaxHighlighter = (function(){
 	 * Sets the full class of the SH object
 	 * @param {String} cls the class to add to the Object
 	 */
-	SyntaxHighlighter.prototype.setClass = function(cls) {
-		this._sh.class += cls;
+	SyntaxHighlighter.prototype.setCls = function(cls) {
+		this._sh.cls += cls;
 	};
 
 	/**
 	 * Gets the full class of the SH Object
 	 * @return {String} the full class of the SH Object
 	 */
-	SyntaxHighlighter.prototype.getClass = function() {
-		return this._sh.class;
+	SyntaxHighlighter.prototype.getCls = function() {
+		return this._sh.cls;
 	};
 
 	/**
 	 * Get the tag to insert into the pre tag
-	 * @return {String} the tag to insert, FALSE otherwise
+	 * @return {String} the tag to insert, pre otherwise
 	 */
 	SyntaxHighlighter.prototype.getTag = function() {
-		return (this._sh.class != '') ?
-				this._sh.class :
-				false;
+		return this._sh.tag;
 	};
 
 	return SyntaxHighlighter;
@@ -81,25 +78,25 @@ var SyntaxHighlighter = (function(){
 /* SYNTAX HIGHLIGHTERS DEFINITION */
 /**********************************/
 var HIGHLIGHT = {
-	type  : "HIGHLIGHT",
-	class : "",
-	tag   : 'code'
+	type : "HIGHLIGHT",
+	cls  : "", // only show language (done in pbckcode.js)
+	tag  : 'code'
 }
 
 var PRETTIFY = {
-	type  : "PRETTIFY",
-	class : "prettyprint linenums lang-",
-	tag   : ''
+	type : "PRETTIFY",
+	cls  : "prettyprint linenums lang-",
+	tag  : 'pre'
 }
 
 var PRISM = {
-	type  : "PRISM",
-	class : "language-",
-	tag   : 'code'
+	type : "PRISM",
+	cls  : "language-",
+	tag  : 'code'
 };
 
 var SYNTAX_HIGHLIGHTER = {
-	type  : "SYNTAX_HIGHLIGHTER",
-	class : "brush: ",
-	tag   : ''
+	type : "SYNTAX_HIGHLIGHTER",
+	cls  : "brush: ",
+	tag  : 'pre'
 }

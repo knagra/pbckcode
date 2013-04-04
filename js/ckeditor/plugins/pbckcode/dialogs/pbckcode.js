@@ -89,11 +89,16 @@ return {
 
 			// looking for the pre parent tag
 			if(element)
-				element = element.getAscendant(shighlighter.getTag(), true);
+				element = element.getAscendant('pre', true);
 
 			// if there is no pre tag, it is an addition. Therefore, it is an edition
-			if(!element || element.getName() != shighlighter.getTag()) {
-				element = editor.document.createElement(shighlighter.getTag());
+			if(!element || element.getName() != 'pre') {
+				element = new CKEDITOR.dom.element('pre');
+
+				if(shighlighter.getTag() != 'pre') {
+					console.log("OK");
+					element.append(new CKEDITOR.dom.element('code'));
+				}
 
 				this.insertMode = true;
 			}
@@ -114,15 +119,27 @@ return {
 		onOk: function() {
 			var dialog = this,
 				pre = this.element;
-
-			this.commitContent(pre);
+				if(shighlighter.getTag()  != 'pre') {
+					code = this.element.getChild(0);
+				}
+				console.log(pre);
+				console.log(code);
+				if(shighlighter.getTag()  == 'pre') {
+					this.commitContent(pre);
+				} else {
+					this.commitContent(code);
+				}
 
 			// set the full class to the code tag
-			shighlighter.setCls(this.element.getAttribute("data-pbcklang") + " " + settings.cls);
+			shighlighter.setCls(pre.getAttribute("data-pbcklang") + " " + settings.cls);
 
 			// we add a new code tag into ckeditor editor
 			if(this.insertMode) {
-				pre.setAttribute('class', shighlighter.getCls());
+				if(shighlighter.getTag()  == 'pre') {
+					pre.setAttribute('class', shighlighter.getCls());
+				} else {
+					code.setAttribute('class', shighlighter.getCls());
+				}
 				editor.insertElement(pre);
 			}
 

@@ -17,7 +17,7 @@ DEFAULT_SETTINGS = {
 settings = merge_settings(DEFAULT_SETTINGS, editor.config.pbckcode);
 
 // init vars
-var AceEditor,
+var AceEditor, pre,
     shighlighter = new SyntaxHighlighter(settings.highlighter);
 
 
@@ -40,10 +40,16 @@ return {
 				items   : settings.modes,
 				default : settings.modes[0][1],
 				setup   : function(element) {
-					this.setValue(element.getAttribute("data-pbcklang"));
+					if(element) {
+						element = element.getAscendant('pre', true);
+						this.setValue(element.getAttribute("data-pbcklang"));
+					}
 				},
 				commit : function(element) {
-					element.setAttribute("data-pbcklang", this.getValue());
+					if(element) {
+						element = element.getAscendant('pre', true);
+						element.setAttribute("data-pbcklang", this.getValue());
+					}
 				},
 				onChange: function(api) {
 					AceEditor.getSession().setMode("ace/mode/" + this.getValue());
@@ -96,13 +102,15 @@ return {
 				element = new CKEDITOR.dom.element('pre');
 
 				if(shighlighter.getTag() != 'pre') {
-					console.log("OK");
 					element.append(new CKEDITOR.dom.element('code'));
 				}
 
 				this.insertMode = true;
 			}
 			else {
+				if(shighlighter.getTag() != 'pre') {
+					element = element.getChild(0);
+				}
 				this.insertMode = false;
 			}
 			// get the element to fill the inputs
@@ -119,11 +127,11 @@ return {
 		onOk: function() {
 			var dialog = this,
 				pre = this.element;
+
 				if(shighlighter.getTag()  != 'pre') {
 					code = this.element.getChild(0);
 				}
-				console.log(pre);
-				console.log(code);
+
 				if(shighlighter.getTag()  == 'pre') {
 					this.commitContent(pre);
 				} else {

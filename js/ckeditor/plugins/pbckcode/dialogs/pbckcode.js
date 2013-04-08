@@ -20,8 +20,6 @@ settings = merge_settings(DEFAULT_SETTINGS, editor.config.pbckcode);
 var AceEditor, pre,
     shighlighter = new SyntaxHighlighter(settings.highlighter);
 
-
-
 // dialog code
 return {
 		// Basic properties of the dialog window: title, minimum size.
@@ -126,31 +124,27 @@ return {
 		// This method is invoked once a user clicks the OK button, confirming the dialog.
 		onOk: function() {
 			var dialog = this,
-				pre = this.element;
+				pre = element = this.element;
 
+			if(this.insertMode) {
 				if(shighlighter.getTag()  != 'pre') {
-					code = this.element.getChild(0);
+					element = this.element.getChild(0);
 				}
+			} else {
+				pre = element.getAscendant('pre', true);
+			}
 
-				if(shighlighter.getTag()  == 'pre') {
-					this.commitContent(pre);
-				} else {
-					this.commitContent(code);
-				}
+			this.commitContent(element);
 
 			// set the full class to the code tag
 			shighlighter.setCls(pre.getAttribute("data-pbcklang") + " " + settings.cls);
 
+			element.setAttribute('class', shighlighter.getCls());
+
 			// we add a new code tag into ckeditor editor
 			if(this.insertMode) {
-				if(shighlighter.getTag()  == 'pre') {
-					pre.setAttribute('class', shighlighter.getCls());
-				} else {
-					code.setAttribute('class', shighlighter.getCls());
-				}
 				editor.insertElement(pre);
 			}
-
 		}
 	};
 });

@@ -1,7 +1,6 @@
 CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
     "use strict";
 
-
     // if there is no user settings
     // create an empty object
     if(editor.config.pbckcode === undefined) {
@@ -59,7 +58,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
                 type  : 'html',
                 html  : '<div id="code_' + editor.codeId + '"></div>',
                 id    : 'code-textarea',
-                style : 'min-width: 580px; min-height: 330px; position: relative;',
+                style : 'position: absolute; top: 80px; left: 10px; right: 10px; bottom: 50px;',
                 setup : function(element) {
                     // get the value of the editor
                     var code = element.getHtml();
@@ -83,6 +82,8 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
             AceEditor = ace.edit("code_" + editor.codeId);
             AceEditor.getSession().setMode("ace/mode/" + settings.modes[0][1]);
             AceEditor.setTheme("ace/theme/" + settings.theme);
+
+            editor.aceEditor = AceEditor;
         },
         onShow : function() {
             // get the selection
@@ -146,6 +147,13 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
             }
         }
     };
+});
+
+CKEDITOR.dialog.on('resize', function(evt) {
+    var AceEditor = evt.editor.aceEditor;
+    if(AceEditor !== undefined) {
+        AceEditor.resize();
+    }
 });
 
 /**

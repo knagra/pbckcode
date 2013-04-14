@@ -1,6 +1,7 @@
 CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
     "use strict";
 
+
     // if there is no user settings
     // create an empty object
     if(editor.config.pbckcode === undefined) {
@@ -56,10 +57,13 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
             },
             {
                 type  : 'html',
-                html  : '<div id="code"></div>',
+                html  : '<div id="code_' + editor.codeId + '"></div>',
+                id    : 'code-textarea',
+                style : 'min-width: 580px; min-height: 330px; position: relative;',
                 setup : function(element) {
                     // get the value of the editor
                     var code = element.getHtml();
+
                     // replace some regexp
                     code = code.replace(new RegExp('<br/>', 'g'), '\n');
                     code = code.replace(new RegExp('<br>', 'g'), '\n');
@@ -74,21 +78,11 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
                 }
             }]
         }],
-        onResize : function() {
-            console.log('hello');
-        },
         onLoad : function() {
-            // we get the #code div and style it
-            $code = document.getElementById('code');
-            $code.style.minWidth = '600px';
-            $code.style.minHeight = '380px';
-            $code.style.position = 'relative';
-
             // we load the ACE plugin to our div
-            AceEditor = ace.edit("code");
+            AceEditor = ace.edit("code_" + editor.codeId);
             AceEditor.getSession().setMode("ace/mode/" + settings.modes[0][1]);
             AceEditor.setTheme("ace/theme/" + settings.theme);
-            AceEditor.resize();
         },
         onShow : function() {
             // get the selection
@@ -107,7 +101,6 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
                 if(shighlighter.getTag() !== 'pre') {
                     element.append(new CKEDITOR.dom.element('code'));
                 }
-
                 this.insertMode = true;
             }
             else {

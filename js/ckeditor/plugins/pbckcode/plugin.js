@@ -25,6 +25,9 @@ CKEDITOR.plugins.add('pbckcode', {
         link.media = 'all';
         head.appendChild(link);
 
+        // init a new id to the code element for ACE Editor
+        editor.codeId = Math.random().toString(36).substring(3);
+
         editor.addCommand('pbckcodeCommand', new CKEDITOR.dialogCommand('pbckcodeDialog'));
 
         editor.ui.addButton('pbckcode', {

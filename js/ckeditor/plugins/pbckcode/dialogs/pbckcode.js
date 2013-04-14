@@ -1,28 +1,28 @@
 CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
-"use strict";
-// if there is no user settings
-// create an empty object
-if(editor.config.pbckcode === undefined) {
-    editor.config.pbckcode = {};
-}
+    "use strict";
 
-// default settings object
-var DEFAULT_SETTINGS = {
-    cls         : '',
-    modes       :  [ ['HTML', 'html'],['PHP', 'php'], ['CSS', 'css'], ['JS', 'javascript'] ],
-    theme       : 'textmate',
-    highlighter : 'PRISM',
-};
+    // if there is no user settings
+    // create an empty object
+    if(editor.config.pbckcode === undefined) {
+        editor.config.pbckcode = {};
+    }
 
-// merge user settings with default settings
-var settings = merge_settings(DEFAULT_SETTINGS, editor.config.pbckcode);
+    // default settings object
+    var DEFAULT_SETTINGS = {
+        cls         : '',
+        modes       :  [ ['HTML', 'html'], ['CSS', 'css'], ['PHP', 'php'], ['JS', 'javascript'] ],
+        theme       : 'textmate'
+    };
 
-// init vars
-var AceEditor,
-    shighlighter = new SyntaxHighlighter(settings.highlighter);
+    // merge user settings with default settings
+    var settings = merge_settings(DEFAULT_SETTINGS, editor.config.pbckcode);
 
-// dialog code
-return {
+    // init vars
+    var AceEditor, $code,
+        shighlighter = new SyntaxHighlighter(settings.highlighter);
+
+    // dialog code
+    return {
         // Basic properties of the dialog window: title, minimum size.
         title: editor.lang.pbckcode.title,
         minWidth: 600,
@@ -34,23 +34,23 @@ return {
             label    : editor.lang.pbckcode.tabCode,
             elements :
             [{
-                type    : 'select',
-                id      : 'code-select',
-                items   : settings.modes,
-                default : settings.modes[0][1],
-                setup   : function(element) {
+                type      : 'select',
+                id        : 'code-select',
+                items     : settings.modes,
+                'default' : settings.modes[0][1],
+                setup     : function(element) {
                     if(element) {
                         element = element.getAscendant('pre', true);
                         this.setValue(element.getAttribute("data-pbcklang"));
                     }
                 },
-                commit : function(element) {
+                commit    : function(element) {
                     if(element) {
                         element = element.getAscendant('pre', true);
                         element.setAttribute("data-pbcklang", this.getValue());
                     }
                 },
-                onChange: function(element) {
+                onChange  : function(element) {
                     AceEditor.getSession().setMode("ace/mode/" + this.getValue());
                 }
             },
@@ -74,17 +74,21 @@ return {
                 }
             }]
         }],
-        onLoad: function() {
+        onResize : function() {
+            console.log('hello');
+        },
+        onLoad : function() {
             // we get the #code div and style it
-            var code = document.getElementById('code');
-            code.style.width = '600px';
-            code.style.height = '380px';
-            code.style.position = 'relative';
+            $code = document.getElementById('code');
+            $code.style.minWidth = '600px';
+            $code.style.minHeight = '380px';
+            $code.style.position = 'relative';
 
             // we load the ACE plugin to our div
             AceEditor = ace.edit("code");
             AceEditor.getSession().setMode("ace/mode/" + settings.modes[0][1]);
             AceEditor.setTheme("ace/theme/" + settings.theme);
+            AceEditor.resize();
         },
         onShow : function() {
             // get the selection
@@ -124,10 +128,9 @@ return {
             }
         },
         // This method is invoked once a user clicks the OK button, confirming the dialog.
-        onOk: function() {
+        onOk : function() {
             var pre, element;
-
-            pre =element = this.element;
+            pre = element = this.element;
 
             if(this.insertMode) {
                 if(shighlighter.getTag()  !== 'pre') {
@@ -151,7 +154,6 @@ return {
         }
     };
 });
-
 
 /**
  * Merge defaults settings with user settings

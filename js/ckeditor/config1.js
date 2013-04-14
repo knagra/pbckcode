@@ -4,7 +4,4 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'others' }                       // shows the pbckcode button
 	];
 	config.extraPlugins = 'pbckcode,onchange';
-	config.pbckcode = {
-		highlighter : "PRETTIFY"
-	};
 };

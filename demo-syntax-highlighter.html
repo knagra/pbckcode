@@ -8,6 +8,9 @@
 	<meta name="description" content="A plugin to easily add code into your articles">
 	<link rel="stylesheet" href="css/base.css" />
 	<link rel="stylesheet" href="css/demo.css" />
+
+	<link href="js/highlighter/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="js/highlighter/syntaxhighlighter/styles/shThemeMidnight.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<nav class="top-bar">
@@ -40,7 +43,7 @@
 	</nav>
 	<div class="row">
 		<div class="small-12 columns">
-			<h1>Prism</h1>
+			<h1>Syntax Highlighter</h1>
 		</div>
 	</div>
 	<div class="row">
@@ -60,8 +63,9 @@ CKEDITOR.editorConfig = function( config ) {
     ];
     config.extraPlugins = 'pbckcode,onchange';
     config.pbckcode = {
-        theme : 'tomorrow_night',
-        highlighter : "PRISM"
+        modes :  [ ['PHP', 'php'] ],
+        theme : 'clouds',
+        highlighter : "SYNTAX_HIGHLIGHTER"
     };
 };</pre>
 		</div>
@@ -77,12 +81,13 @@ CKEDITOR.editorConfig = function( config ) {
 	<script src="js/base.js"></script>
 	<script src="js/ckeditor/ckeditor.js"></script>
 	<script src="js/highlighter/google-code-prettify/prettify.js"></script>
-	<script src="js/highlighter/prism/prism.js"></script>
+	<script src="js/highlighter/syntaxhighlighter/scripts/shCore.js"></script>
+	<script src="js/highlighter/syntaxhighlighter/scripts/shBrushPhp.js"></script>
 	<script>
 		jQuery(function($){
 			// init of the CKEditor
 			CKEDITOR.replace('editor1', {
-				customConfig: 'config2.js'
+				customConfig: 'config5.js'
 			});
 
 			/***************************************/
@@ -99,7 +104,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 				// append the result into the div
 				$('.output').html(output);
-				Prism.highlightElement($('.output code'), false);
+				SyntaxHighlighter.highlight();
 			});
 		});
 	</script>

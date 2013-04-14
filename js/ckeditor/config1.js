@@ -1,8 +1,7 @@
 CKEDITOR.editorConfig = function( config ) {
 	config.toolbarGroups = [
 		{ name: 'document', groups: [ 'mode'] }, // shows the source button
-		{ name: 'pbckcode' } ,                    // shows the pbckcode button
-	{ name: 'insert' }
+		{ name: 'pbckcode' } ,                   // shows the pbckcode button
 	];
-	config.extraPlugins = 'pbckcode,onchange,abbr';
+	config.extraPlugins = 'pbckcode,onchange';
 };

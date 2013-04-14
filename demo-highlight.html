@@ -5,12 +5,9 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
 	<title>PBCKCode</title>
-
-	<link rel="stylesheet" href="css/normalize.css" />
-	<link rel="stylesheet" href="css/foundation.css" />
+	<meta name="description" content="A plugin to easily add code into your articles">
+	<link rel="stylesheet" href="css/base.css" />
 	<link rel="stylesheet" href="css/demo.css" />
-	<link rel="stylesheet" href="js/highlighter/google-code-prettify/prettify.css" />
-	<link rel="stylesheet" href="js/highlighter/highlight/styles/default.css" />
 </head>
 <body>
 	<nav class="top-bar">
@@ -26,12 +23,13 @@
 				<li class="has-dropdown active"><a href="#">Examples</a>
 					<ul class="dropdown">
 						<li><a href="demo-default.html">Default</a>
+						<li><a href="demo-prettify.html">Prettify.js</a>
 						<li><a href="demo-prism.html">Prism.js</a>
 						<li><a href="demo-highlight.html">Highlight.js</a>
 						<li><a href="demo-syntax-highlighter.html">SyntaxHighlighter.js</a>
 					</ul>
 				</li>
-				<li><a href="#">Docs</a></li>
+				<li><a href="docs.html">Docs</a></li>
 			</ul>
 			<ul class="right">
 				<li class="has-form"><a href="https://github.com/prbaron/PBCKCode/tags" class="button">Download</a></li>
@@ -42,7 +40,7 @@
 	</nav>
 	<div class="row">
 		<div class="small-12 columns">
-			<h1>Default Example <small>No configuration</small></h1>
+			<h1>Highlight</h1>
 		</div>
 	</div>
 	<div class="row">
@@ -58,7 +56,7 @@ CKEDITOR.editorConfig = function( config ) {
         // shows the source button
         { name: 'document', groups: [ 'mode'] },
         // shows the pbckcode button
-        { name: 'others' }
+        { name: 'pbckcode' }
     ];
     config.extraPlugins = 'pbckcode,onchange';
     config.pbckcode = {
@@ -77,8 +75,7 @@ CKEDITOR.editorConfig = function( config ) {
 		</div>
 	</div>
 
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="js/foundation/foundation.min.js"></script>
+	<script src="js/base.js"></script>
 	<script src="js/ckeditor/ckeditor.js"></script>
 	<script src="js/highlighter/google-code-prettify/prettify.js"></script>
 	<script src="js/highlighter/highlight/highlight.pack.js"></script>
@@ -102,7 +99,9 @@ CKEDITOR.editorConfig = function( config ) {
 				output = e.editor.getData();
 
 				// append the result into the div
-				$('.output').html(output);
+				$('.output')
+					.html(output)
+					.each(function(i, e) {hljs.highlightBlock(e)});
 			});
 		});
 	</script>

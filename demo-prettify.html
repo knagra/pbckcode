@@ -40,7 +40,7 @@
 	</nav>
 	<div class="row">
 		<div class="small-12 columns">
-			<h1>Prism</h1>
+			<h1>Google Code Prettify</h1>
 		</div>
 	</div>
 	<div class="row">
@@ -58,12 +58,13 @@ CKEDITOR.editorConfig = function( config ) {
         // shows the pbckcode button
         { name: 'pbckcode' }
     ];
-    config.extraPlugins = 'pbckcode,onchange';
+    config.extraPlugins = 'pbckcode';
     config.pbckcode = {
-        theme : 'tomorrow_night',
+        theme : 'monokai',
         highlighter : "PRISM"
     };
-};</pre>
+};
+			</pre>
 		</div>
 	</div>
 	<div class="row">
@@ -77,12 +78,11 @@ CKEDITOR.editorConfig = function( config ) {
 	<script src="js/base.js"></script>
 	<script src="js/ckeditor/ckeditor.js"></script>
 	<script src="js/highlighter/google-code-prettify/prettify.js"></script>
-	<script src="js/highlighter/prism/prism.js"></script>
 	<script>
 		jQuery(function($){
 			// init of the CKEditor
 			CKEDITOR.replace('editor1', {
-				customConfig: 'config2.js'
+				customConfig: 'config4.js'
 			});
 
 			/***************************************/
@@ -99,7 +99,8 @@ CKEDITOR.editorConfig = function( config ) {
 
 				// append the result into the div
 				$('.output').html(output);
-				Prism.highlightElement($('.output code'), false);
+				// relaunch the prettify code
+				prettyPrint();
 			});
 		});
 	</script>

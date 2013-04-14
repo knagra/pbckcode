@@ -14,7 +14,7 @@ CKEDITOR.plugins.add('pbckcode', {
         head        = document.getElementsByTagName('HEAD').item(0);
         script      = document.createElement("script");
         script.type = "text/javascript";
-        script.src  = CKEDITOR.plugins.getPath('pbckcode') + "dialogs/SyntaxHighlighter.js";
+        script.src  = CKEDITOR.plugins.getPath('pbckcode') + "dialogs/PBSyntaxHighlighter.js";
         head.appendChild(script);
 
         // load CSS file

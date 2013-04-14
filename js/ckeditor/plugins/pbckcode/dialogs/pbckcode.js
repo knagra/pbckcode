@@ -9,17 +9,17 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
 
     // default settings object
     var DEFAULT_SETTINGS = {
-        cls         : '',
-        modes       :  [ ['HTML', 'html'], ['CSS', 'css'], ['PHP', 'php'], ['JS', 'javascript'] ],
-        theme       : 'textmate'
+        cls   : '',
+        modes :  [ ['HTML', 'html'], ['CSS', 'css'], ['PHP', 'php'], ['JS', 'javascript'] ],
+        theme : 'textmate'
     };
 
     // merge user settings with default settings
     var settings = merge_settings(DEFAULT_SETTINGS, editor.config.pbckcode);
 
     // init vars
-    var AceEditor, $code,
-        shighlighter = new SyntaxHighlighter(settings.highlighter);
+    var AceEditor,
+        shighlighter = new PBSyntaxHighlighter(settings.highlighter);
 
     // dialog code
     return {
@@ -83,6 +83,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
             AceEditor.getSession().setMode("ace/mode/" + settings.modes[0][1]);
             AceEditor.setTheme("ace/theme/" + settings.theme);
 
+            // save the AceEditor into the editor object for the resize event
             editor.aceEditor = AceEditor;
         },
         onShow : function() {
@@ -149,6 +150,9 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
     };
 });
 
+/*
+ * Resize the ACE Editor
+ */
 CKEDITOR.dialog.on('resize', function(evt) {
     var AceEditor = evt.editor.aceEditor;
     if(AceEditor !== undefined) {

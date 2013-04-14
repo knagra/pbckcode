@@ -40,7 +40,7 @@
 	</nav>
 	<div class="row">
 		<div class="small-12 columns">
-			<h1>Prism</h1>
+			<h1>Default Example <small>No configuration</small></h1>
 		</div>
 	</div>
 	<div class="row">
@@ -58,31 +58,58 @@ CKEDITOR.editorConfig = function( config ) {
         // shows the pbckcode button
         { name: 'pbckcode' }
     ];
-    config.extraPlugins = 'pbckcode,onchange';
-    config.pbckcode = {
-        theme : 'tomorrow_night',
-        highlighter : "PRISM"
-    };
-};</pre>
+    config.extraPlugins = 'pbckcode';
+};
+			</pre>
 		</div>
 	</div>
 	<div class="row">
 		<div class="small-12 columns">
 			<hr>
 			<h6>Result</h6>
-			<div class="output"></div>
+			<div class="output" id="output1"></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-6 columns">
+			<h6>Editor</h6>
+			<textarea class="editor" name="editor2" id="editor2"></textarea>
+		</div>
+		<div class="small-6 columns">
+			<h6>Configuration</h6>
+			<pre class="prettyprint linenums">
+CKEDITOR.editorConfig = function( config ) {
+    config.toolbarGroups = [
+        // shows the source button
+        { name: 'document', groups: [ 'mode'] },
+        // shows the pbckcode button
+        { name: 'pbckcode' }
+    ];
+    config.extraPlugins = 'pbckcode';
+};
+			</pre>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<hr>
+			<h6>Result</h6>
+			<div class="output" id="output2"></div>
 		</div>
 	</div>
 
 	<script src="js/base.js"></script>
 	<script src="js/ckeditor/ckeditor.js"></script>
 	<script src="js/highlighter/google-code-prettify/prettify.js"></script>
-	<script src="js/highlighter/prism/prism.js"></script>
 	<script>
 		jQuery(function($){
 			// init of the CKEditor
 			CKEDITOR.replace('editor1', {
-				customConfig: 'config2.js'
+				customConfig: 'config1.js'
+			});
+			CKEDITOR.replace('editor2', {
+				customConfig: 'config1.js'
 			});
 
 			/***************************************/
@@ -98,8 +125,20 @@ CKEDITOR.editorConfig = function( config ) {
 				output = e.editor.getData();
 
 				// append the result into the div
-				$('.output').html(output);
-				Prism.highlightElement($('.output code'), false);
+				$('#output1').html(output);
+				// relaunch the prettify code
+				prettyPrint();
+			});
+
+			// checks each change of the Editor
+			CKEDITOR.instances.editor2.on('change', function(e) {
+				// gets the value of the editor
+				output = e.editor.getData();
+
+				// append the result into the div
+				$('#output2').html(output);
+				// relaunch the prettify code
+				prettyPrint();
 			});
 		});
 	</script>

@@ -31,7 +31,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
         contents:
         [{
             id       : 'code-container',
-            label    : editor.lang.pbckcode.tabCode,
+            label    : editor.lang.pbckcode.title,
             elements :
             [{
                 type      : 'select',

@@ -35,3 +35,6 @@ ol.linenums li {
   line-height: 20px;
   text-shadow: 0 1px 0 #fff;
 }
+
+/* Fontello */
+@charset "UTF-8";@font-face{font-family:'fontello';src:url("../font/fontello.eot?19119184");src:url("../font/fontello.eot?19119184#iefix") format('embedded-opentype'),url("../font/fontello.woff?19119184") format('woff'),url("../font/fontello.ttf?19119184") format('truetype'),url("../font/fontello.svg?19119184#fontello") format('svg');font-weight:normal;font-style:normal}[class^="icon-"]:before,[class*=" icon-"]:before{font-family:'fontello';font-style:normal;font-weight:normal;speak:none;display:inline-block;text-decoration:inherit;width:1em;margin-right:.2em;text-align:center;font-variant:normal;text-transform:none;line-height:1em;margin-left:.2em}.icon-twitter:before{content:'\54'}.icon-gmail:before{content:'\6d'}.icon-github:before{content:'\f113'}.icon-link:before{content:'🔗'}

@@ -10,66 +10,83 @@
 	<link rel="stylesheet" href="css/demo.css" />
 </head>
 <body>
-	<nav class="top-bar">
-		<ul class="title-area">
-			<li class="name">
-				<h1><a href="index.html">PBCKCode</a></h1>
-			</li>
-			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-		</ul>
-
-		<section class="top-bar-section">
-			<ul class="left">
-				<li class="has-dropdown active"><a href="#">Examples</a>
-					<ul class="dropdown">
-						<li><a href="demo-default.html">Default</a>
-						<li><a href="demo-prettify.html">Prettify.js</a>
-						<li><a href="demo-prism.html">Prism.js</a>
-						<li><a href="demo-highlight.html">Highlight.js</a>
-						<li><a href="demo-syntax-highlighter.html">SyntaxHighlighter.js</a>
-					</ul>
+	<div class="container">
+		<nav class="top-bar">
+			<ul class="title-area">
+				<li class="name">
+					<h1><a href="index.html">PBCKCode</a></h1>
 				</li>
-				<li><a href="docs.html">Docs</a></li>
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			</ul>
-			<ul class="right">
-				<li class="has-form"><a href="https://github.com/prbaron/PBCKCode/tags" class="button">Download</a></li>
-				<li class="divider"></li>
-				<li class="has-form"><a href="https://github.com/prbaron/PBCKCode" class="button secondary">Fork it on GitHub</a></li>
-			</ul>
-		</section>
-	</nav>
-	<div class="row">
-		<div class="small-12 columns">
-			<h1>Default Example <small>No configuration</small></h1>
+
+			<section class="top-bar-section">
+				<ul class="left">
+					<li class="has-dropdown active"><a href="#">Examples</a>
+						<ul class="dropdown">
+							<li><a href="demo-default.html">Default</a>
+							<li><a href="demo-prettify.html">Prettify.js</a>
+							<li><a href="demo-prism.html">Prism.js</a>
+							<li><a href="demo-highlight.html">Highlight.js</a>
+							<li><a href="demo-syntax-highlighter.html">SyntaxHighlighter.js</a>
+						</ul>
+					</li>
+					<li><a href="docs.html">Documentation</a></li>
+				</ul>
+				<ul class="right">
+					<li class="has-form"><a href="https://github.com/prbaron/PBCKCode/tags" class="button">Download</a></li>
+					<li class="divider"></li>
+					<li class="has-form"><a href="https://github.com/prbaron/PBCKCode" class="button secondary">Fork it on GitHub</a></li>
+				</ul>
+			</section>
+		</nav>
+		<div class="row">
+			<div class="small-12 columns">
+				<h1>Default Example <small>No configuration</small></h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-6 columns">
+				<h6>Editor</h6>
+				<textarea class="editor" name="editor1" id="editor1"></textarea>
+			</div>
+			<div class="small-6 columns">
+				<h6>Configuration</h6>
+				<pre class="prettyprint linenums">
+	CKEDITOR.editorConfig = function( config ) {
+	    config.toolbarGroups = [
+	        // shows the source button
+	        { name: 'document', groups: [ 'mode'] },
+	        // shows the pbckcode button
+	        { name: 'pbckcode' }
+	    ];
+	    config.extraPlugins = 'pbckcode';
+	};
+				</pre>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<hr>
+				<h6>Result</h6>
+				<div class="output"></div>
+			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="small-6 columns">
-			<h6>Editor</h6>
-			<textarea class="editor" name="editor1" id="editor1"></textarea>
+	<footer>
+		<div class="row full-width">
+			<div class="small-4 columns">
+				<span>Pierre Baron. Release <a href="http://creativecommons.org/licenses/by/3.0/fr/">under CC BY 3.0</a>.</span>
+			</div>
+			<div class="small-8 columns">
+				<ul class="inline-list right">
+					<li><a href="http://www.pierrebaron.fr"><i class="icon-link"></i></a></li>
+					<li><a href="https://twitter.com/prbaron"><i class="icon-twitter"></i></a></li>
+					<li><a href="https://github.com/prbaron"><i class="icon-github"></i></a></li>
+					<li><a href="mailto:prbaron22@gmail.com?subject=[pbckcode] Hi !"><i class="icon-gmail"></i></a></li>
+				</ul>
+			</div>
 		</div>
-		<div class="small-6 columns">
-			<h6>Configuration</h6>
-			<pre class="prettyprint linenums">
-CKEDITOR.editorConfig = function( config ) {
-    config.toolbarGroups = [
-        // shows the source button
-        { name: 'document', groups: [ 'mode'] },
-        // shows the pbckcode button
-        { name: 'pbckcode' }
-    ];
-    config.extraPlugins = 'pbckcode';
-};
-			</pre>
-		</div>
-	</div>
-	<div class="row">
-		<div class="small-12 columns">
-			<hr>
-			<h6>Result</h6>
-			<div class="output"></div>
-		</div>
-	</div>
+	</footer>
 
 	<script src="js/base.js"></script>
 	<script src="js/ckeditor/ckeditor.js"></script>

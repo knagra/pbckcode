@@ -7,10 +7,16 @@ The plugin will create a dialog where you will be able to format your code as yo
 See it in action ! http://prbaron.github.com/PBCKCode/
 
 # Installation
+<<<<<<< HEAD
 1. Download the plugin from the Github repository : [https://github.com/prbaron/PBCKCode/tags](https://github.com/prbaron/PBCKCode/tags)
 2. Rename it to **pbckcode** (it will be easier to call it into CKEditor)
 3. Place the folder into the plugins folder of CKEditor ( *{Path to CKEDitor}/plugins/* ) 
 4. Open the config.js file and add the following lines :   
+=======
+ - Download the plugin from the Github repository : [https://github.com/prbaron/PBCKCode/tags](https://github.com/prbaron/PBCKCode/tags)
+ - Place the folder into the plugins folder of CKEditor ( *{Path to CKEDitor}/plugins/* ) 
+ - Open the config.js file and add the following lines :   
+>>>>>>> docs-1.1.0
 <pre>
 // I juste paste the important lines, you can add all the toolbar buttons you want
 config.toolbarGroups = [
@@ -27,12 +33,21 @@ This plugin comes with a full set of themes and modes, you can see all these thi
 Here is properties you can customize and their default value : 
 <pre>
 config.pbckcode  = {
+<<<<<<< HEAD
 	'class' : 'prettyprint linenums',	// the class(es) added to the pre tag, useful if you use a syntax highlighter (here it is Google Prettify)
 	'mode' : [ 
 		['PHP'  , 'php'], 
 		['HTML' , 'html'], 
 		['CSS'  , 'css'] ], // all the languages you want to deal with in the plugin
   	'default' : 'php', // the default value for the mode select. Well in fact it is the first value of the mode array
+=======
+	'cls'         : 'prettyprint linenums',	// the class(es) added to the pre tag, useful if you use a syntax highlighter (here it is Google Prettify)
+	'modes'       : [ 
+		['PHP'  , 'php'], 
+		['HTML' , 'html'], 
+		['CSS'  , 'css'] ], // all the languages you want to deal with in the plugin
+  	'defaultMode' : 'php', // the default value for the mode select. Well in fact it is the first value of the mode array
+>>>>>>> docs-1.1.0
 	'theme' : 'textmate' // the theme of the code editor
 };
 </pre>
@@ -49,7 +64,11 @@ The mode property is an associative array of all the mode you want to be able to
 
 Here is an array with all the modes you can use in the plugin : 
 <pre>
+<<<<<<< HEAD
 'mode' : [
+=======
+'modes' : [
+>>>>>>> docs-1.1.0
 	["C/C++"        , "c_pp"],
 	["C9Search"     , "c9search"],
 	["Clojure"      , "clojure"],

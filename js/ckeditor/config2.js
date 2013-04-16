@@ -5,8 +5,8 @@ CKEDITOR.editorConfig = function( config ) {
 	];
 	config.extraPlugins = 'pbckcode,onchange';
 	config.pbckcode = {
-		modes :  [ ['PHP', 'php'] ],
+		modes :  [ ['C', 'c_pp'] ],
 		theme : 'clouds',
-		highlighter : "SYNTAX_HIGHLIGHTER"
+		highlighter : "PRETTIFY"
 	};
 };

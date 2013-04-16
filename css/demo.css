@@ -3,7 +3,7 @@ html {
     background: #fcfcfc;
 }
 body {
-    background: #fff;    
+    background: #fff;
 }
 
 .output {
@@ -37,8 +37,6 @@ a.cke_button {
 	font-size: 0.8em;
 	margin-bottom: 0.5em;
 }
-
-
 
 .hide {
 	display: none;

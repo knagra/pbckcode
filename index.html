@@ -1,55 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Pierre</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="PBCKCode, A CKEditor plugin to easily add code into your articles.">
-	<meta name="author" content="Pierre Baron, http://www.pierrebaron.fr">
-	
-	<!-- Le style -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	
-	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<style type="text/css" media="screen">
-		#aceEditor {
-			 position: relative;
-			 width: 100%;
-			 height: 100px;
-		 }
-		 footer {
-		 	bottom: 20px;
-		 	position: fixed;
-		 	text-align: center;
-		 }
-	</style>
-</head>
-
-<body>
-<a href="https://github.com/prbaron/PBCKCode"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
-	<div class="container">
-		<h1>PBCKCode</h1>
-		<p>You just have to click on the rightest button to see the plugin in action, type some code and press <strong>OK</strong>.</p>
-		<p>Adding code to articles has never been so easier!</p>
-		<p class="muted">Due to the file size of Ace plugin, it can not work the first time. Just close the dialog and re open it.</p>
-		<textarea class="ckeditor" name="ckeditor"></textarea>
-		
-		<footer>
-			<div class="container">
-				<hr/>
-				<p class="muted">2013, Pierre Baron, <a href="http://www.pierrebaron.fr">http://www.pierrebaron.fr</a>.</p>
-			</div>
-		</footer>
-	</div> <!-- .container -->
-	
-	
-	<script src="js/ckeditor/ckeditor.js"></script>
-	<script src="js/ckeditor/config.js"></script>
-=======
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
@@ -93,7 +42,7 @@
 		<div class="small-12 columns" style="text-align: center;">
 			<h1 >Introducing PBCKCode <br/><small>a CKEditor plugin to easily add code into your articles</small></h1>
             <hr>
-            <a href="demo-default.html" class="button">Examples</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="docs.html" class="button secondary">Documentation</a> 
+            <a href="demo-default.html" class="button">Examples</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="docs.html" class="button secondary">Documentation</a>
         </div>
         </div>
   	<div class="row">
@@ -102,6 +51,47 @@
             <p>This is a CKEditor plugin that provides an IDE-like features and creates the good syntax to load your syntax highlighter. The IDE-like features are possible owing to the <a href="http://ajaxorg.github.io/ace/#nav=about">ACE Editor plugin</a>.</p>
             <h3 class="subheader">Why pbckcode ?</h3>
             <p>This plugin comes from my personnal need. I am becoming a blogger and I want to write code articles and tutorials. However I did not found any decent plugins to add code blocks into posts so I decided to create mine.</p>
+            <h3 class="subheader">Whose for?</h3>
+            <p>Writer, bloggers, coders, developers, everbody !</p>
+		</div>
+	</div>
+    <footer>
+		<div class="row full-width">
+			<div class="small-4 columns">
+				<span>Pierre Baron. Release <a href="http://creativecommons.org/licenses/by/3.0/fr/">under CC BY 3.0</a>.</span>
+			</div>
+			<div class="small-8 columns">
+				<ul class="inline-list right">
+					<li><a href="http://www.pierrebaron.fr" data-tooltip class="has-tip tip-top" title="http://www.pierrebaron.fr"><i class="icon-link"></i></a></li>
+					<li><a href="https://twitter.com/prbaron" data-tooltip class="has-tip tip-top" title="@prbaron"><i class="icon-twitter"></i></a></li>
+					<li><a href="https://github.com/prbaron" data-tooltip class="has-tip tip-top" title="@prbaron"><i class="icon-github"></i></a></li>
+					<li><a href="mailto:prbaron22@gmail.com?subject=[pbckcode] Hi !" data-tooltip class="has-tip tip-top" title="prbaron22@gmail.com"><i class="icon-gmail"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<script src="js/base.js"></script>
+	<script src="js/ckeditor/ckeditor.js"></script>
+	<script src="js/highlighter/google-code-prettify/prettify.js"></script>
+	<script>
+		jQuery(function($){
+			/***************************************/
+			/**
+			 * this part is for demo purpose only
+			 */
+			$(document).foundation();
+
+			// used for the configuration block
+			prettyPrint();
+
+			$('#toggle-modes').on('click', function(){
+				$(this).next('pre').toggle();
+			});
+		});
+	</script>
+</body>
+</html>
+plugin comes from my personnal need. I am becoming a blogger and I want to write code articles and tutorials. However I did not found any decent plugins to add code blocks into posts so I decided to create mine.</p>
             <h3 class="subheader">Whose for?</h3>  
             <p>Writer, bloggers, coders, developers, everbody !</p>   
 		</div>

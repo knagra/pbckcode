@@ -1,9 +1,6 @@
 CKEDITOR.plugins.setLang("pbckcode","en",
 {
-	title: 'Add code',
-<<<<<<< HEAD
-=======
+	title: 'PBCKCODE',
 	addCode : 'Add code',
 	editCode : 'Edit code'
->>>>>>> docs-1.1.0
 });

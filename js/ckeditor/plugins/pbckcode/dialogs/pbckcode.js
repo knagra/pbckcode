@@ -82,6 +82,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function ( editor ) {
             AceEditor = ace.edit("code_" + editor.codeId);
             AceEditor.getSession().setMode("ace/mode/" + settings.modes[0][1]);
             AceEditor.setTheme("ace/theme/" + settings.theme);
+            AceEditor.getSession().useWorker(false);
 
             // save the AceEditor into the editor object for the resize event
             editor.aceEditor = AceEditor;

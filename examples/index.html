@@ -1,0 +1,171 @@
+---
+layout  : examples
+title   : Examples
+tagline : Examples
+---
+
+<section>
+    <h2>Default Example <small>No configuration</small></h2>
+    <ol class="ol">
+        <li>Click on the <kbd><></kbd> icon.</li>
+        <li>Choose your langage and type some code.</li>
+        <li>Click on the <kbd>Source</kbd> button to see the output of the plugin.</li>
+        <li>Check the Result panel to see the live result with a Syntax Highlighter (or not, there is no highlighter loaded for this example).</li>
+    </ol>
+
+    <div class="container">
+        <div class="grid6">
+            <textarea name="editor1" id="editor1"></textarea>
+        </div>
+        <div class="grid6">
+            <pre class="prettyprint linenums">
+CKEDITOR.editorConfig = function( config ) {
+    config.toolbarGroups = [
+        // shows the source button
+        { name: 'document', groups: [ 'mode'] },
+        // shows the pbckcode button
+        { name: 'pbckcode' }
+    ];
+    config.extraPlugins = 'pbckcode';
+};
+            </pre>
+        </div>
+        </div>
+    <div class="container">
+        <div class="grid12">
+            <div id="output1"></div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Google Code Prettify</h2>
+    <div class="container">
+        <div class="grid6">
+            <textarea name="editor2" id="editor2"></textarea>
+        </div>
+        <div class="grid6">
+            <pre class="prettyprint linenums">
+CKEDITOR.editorConfig = function( config ) {
+    config.toolbarGroups = [
+        // shows the source button
+        { name: 'document', groups: [ 'mode'] },
+        // shows the pbckcode button
+        { name: 'pbckcode' }
+    ];
+    config.extraPlugins = 'pbckcode';
+    config.pbckcode = {
+        highlighter : 'PRETTIFY'
+        modes :  [ ['C', 'c_pp'] ],
+        theme : 'clouds',
+    };
+}
+            </pre>
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid12">
+            <div id="output2"></div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Prism.js</h2>
+    <div class="container">
+        <div class="grid6">
+            <textarea name="editor3" id="editor3"></textarea>
+        </div>
+        <div class="grid6">
+            <pre class="prettyprint linenums">
+CKEDITOR.editorConfig = function( config ) {
+    config.toolbarGroups = [
+        // shows the source button
+        { name: 'document', groups: [ 'mode'] },
+        // shows the pbckcode button
+        { name: 'pbckcode' }
+    ];
+    config.extraPlugins = 'pbckcode,onchange';
+    config.pbckcode = {
+        highlighter : 'PRISM',
+        tab_size : '2',
+        theme : 'tomorrow_night',
+    };
+};
+            </pre>
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid12">
+            <div id="output3"></div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Highlight.js</h2>
+    <div class="container">
+        <div class="grid6">
+            <textarea name="editor4" id="editor4"></textarea>
+        </div>
+        <div class="grid6">
+            <pre class="prettyprint linenums">
+CKEDITOR.editorConfig = function( config ) {
+    config.toolbarGroups = [
+        // shows the source button
+        { name: 'document', groups: [ 'mode'] },
+        // shows the pbckcode button
+        { name: 'pbckcode' }
+    ];
+    config.extraPlugins = 'pbckcode,onchange';
+    config.pbckcode = {
+        highlighter : 'HIGHLIGHT'
+        modes :  [ ["Java" , "java"], ["Markdown" , "markdown"] ],
+    };
+};
+            </pre>
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid12">
+            <div id="output4"></div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Syntax Highlighter</h2>
+    <div class="container">
+        <div class="grid6">
+            <textarea name="editor5" id="editor5"></textarea>
+        </div>
+        <div class="grid6">
+            <pre class="prettyprint linenums">
+CKEDITOR.editorConfig = function( config ) {
+    config.toolbarGroups = [
+        // shows the source button
+        { name: 'document', groups: [ 'mode'] },
+        // shows the pbckcode button
+        { name: 'pbckcode' }
+    ];
+    config.extraPlugins = 'pbckcode,onchange';
+    config.pbckcode = {
+        highlighter : 'SYNTAX_HIGHLIGHTER'
+        modes :  [ ['PHP', 'php'] ],
+        theme : 'clouds_midnight',
+    };
+};
+            </pre>
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid12">
+            <div id="output5"></div>
+
+        </div>
+    </div>
+</section>

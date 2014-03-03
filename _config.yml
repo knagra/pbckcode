@@ -1,0 +1,12 @@
+exclude : ['sass']
+google_analytics_id: UA-21369110-4
+markdown: rdiscount
+pygments: true
+site_url : http://www.pierrebaron.fr
+navigation:
+- text: Index
+  url: /
+- text: Examples
+  url: /examples/
+- text: Docs
+  url: /docs/

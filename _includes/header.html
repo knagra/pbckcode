@@ -1,0 +1,30 @@
+<header>
+    <div class="container">
+        <div class="grid12">
+            <a class="logo">pierrebaron.fr</a>
+            <nav class="nav nav-menu">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li class="active"><a href="/works/">PROJETS</a></li>
+                    <li><a href="/blog/">BLOG</a></li>
+                    <li><a href="/contact/">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="grid12">
+            <nav class="nav nav-submenu">
+        	    <ul>
+        	    {% for link in site.navigation %}
+                    {% assign current = nil %}
+                    {% assign currentPage = page.url | remove: 'index.html' %}
+                        {% if currentPage == link.url or page.layout == link.layout %}
+                            {% assign current = 'active' %}
+                        {% endif %}
+                        <li class="{{current}}"><a href="{{ link.url }}">{{ link.text }}</a></li>
+                    {% endfor %}
+                    <li><a href="https://github.com/prbaron/pbckcode"><i class="icon-code-fork"></i> Fork it on GitHub !</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

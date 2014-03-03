@@ -1,93 +1,15 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
-	<title>PBCKCode</title>
-	<meta name="description" content="A plugin to easily add code into your articles">
-	<link rel="stylesheet" href="css/base.css" />
-	<link rel="stylesheet" href="css/demo.css" />
-</head>
-<body>
-    <nav class="top-bar">
-        <ul class="title-area">
-            <li class="name">
-                <h1><a href="index.html">PBCKCode</a></h1>
-            </li>
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-        </ul>
+---
+layout  : default
+title   : pbckcode
+tagline : Introducing pbckcode!
 
-        <section class="top-bar-section">
-            <ul class="left">
-                <li class="has-dropdown"><a href="#">Examples</a>
-                    <ul class="dropdown">
-                        <li><a href="demo-default.html">Default</a>
-                        <li><a href="demo-prettify.html">Prettify.js</a>
-                        <li><a href="demo-prism.html">Prism.js</a>
-                        <li><a href="demo-highlight.html">Highlight.js</a>
-                        <li><a href="demo-syntax-highlighter.html">SyntaxHighlighter.js</a>
-                    </ul>
-                </li>
-                <li><a href="docs.html">Documentation</a></li>
-            </ul>
-            <ul class="right">
-                <li class="has-form"><a href="https://github.com/prbaron/PBCKCode/tags" class="button">Download</a></li>
-                <li class="divider"></li>
-                <li class="has-form"><a href="https://github.com/prbaron/PBCKCode" class="button secondary">Fork it on GitHub</a></li>
-            </ul>
-        </section>
-    </nav>
-	<div class="row">
-		<div class="small-12 columns" style="text-align: center;">
-			<h1 >Introducing PBCKCode <br/><small>a CKEditor plugin to easily add code into your articles</small></h1>
-            <hr>
-            <a href="demo-default.html" class="button">Examples</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="docs.html" class="button secondary">Documentation</a> 
-        </div>
-        </div>
-  	<div class="row">
-		<div class="small-12 columns" >
-            <h3 class="subheader">What is pbckcode ?</h3>
-            <p>This is a CKEditor plugin that provides an IDE-like features and creates the good syntax to load your syntax highlighter. The IDE-like features are possible owing to the <a href="http://ajaxorg.github.io/ace/#nav=about">ACE Editor plugin</a>.</p>
-            <h3 class="subheader">Why pbckcode ?</h3>
-            <p>This plugin comes from my personnal need. I am becoming a blogger and I want to write code articles and tutorials. However I did not found any decent plugins to add code blocks into posts so I decided to create mine.</p>
-            <h3 class="subheader">Whose for?</h3>  
-            <p>Writer, bloggers, coders, developers, everbody !</p>   
-		</div>
-	</div>
-    <footer>
-		<div class="row full-width">
-			<div class="small-4 columns">
-				<span>Pierre Baron. Release <a href="http://creativecommons.org/licenses/by/3.0/fr/">under CC BY 3.0</a>.</span>
-			</div>
-			<div class="small-8 columns">
-				<ul class="inline-list right">
-					<li><a href="http://www.pierrebaron.fr" data-tooltip class="has-tip tip-top" title="http://www.pierrebaron.fr"><i class="icon-link"></i></a></li>
-					<li><a href="https://twitter.com/prbaron" data-tooltip class="has-tip tip-top" title="@prbaron"><i class="icon-twitter"></i></a></li>
-					<li><a href="https://github.com/prbaron" data-tooltip class="has-tip tip-top" title="@prbaron"><i class="icon-github"></i></a></li>
-					<li><a href="mailto:prbaron22@gmail.com?subject=[pbckcode] Hi !" data-tooltip class="has-tip tip-top" title="prbaron22@gmail.com"><i class="icon-gmail"></i></a></li>
-				</ul>
-			</div>
-		</div>
-	</footer>
-	<script src="js/base.js"></script>
-	<script src="js/ckeditor/ckeditor.js"></script>
-	<script src="js/highlighter/google-code-prettify/prettify.js"></script>
-	<script>
-		jQuery(function($){
-			/***************************************/
-			/**
-			 * this part is for demo purpose only
-			 */
-			$(document).foundation();
+---
 
-			// used for the configuration block
-			prettyPrint();
-
-			$('#toggle-modes').on('click', function(){
-				$(this).next('pre').toggle();
-			});
-		});
-	</script>
-</body>
-</html>
+<section>
+    <h2>a CKEditor plugin to easily add code into your articles</h2>
+    <div class="grid12">
+        <p>This is a CKEditor plugin that provides an IDE-like features and creates the good syntax to load your syntax highlighter. The IDE-like features are possible owing to the <a href="http://ajaxorg.github.io/ace/#nav=about">ACE Editor plugin</a>.</p>
+        <p>It came from my personal need. I am a (little) blogger and I want to write code articles and tutorials. However I did not found any decent plugins to add code blocks into posts so I decided to create mine.</p>
+        <p>pbckcode is intended for writer, bloggers, coders, developers, everbody ! so feel free to try it !</p>
+    </div>
+</section>

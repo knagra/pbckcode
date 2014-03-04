@@ -11,7 +11,10 @@ tagline : Documentation
     <li>Place the plugin into the plugins folder of CKEditor <em>{path to CKEditor}/plugins/</em>. </li>
     <li>Open the <strong>config.js</strong> file of your CKEditor and add the following lines : </li>
 </ol>
-<pre class="prettyprint linenums">
+
+{% highlight js linenos %}
+{% raw %}
+
 CKEDITOR.editorConfig = function( config ) {
     // CKEDITOR TOOLBAR CUSTOMIZATION
     // I only set the needed buttons, so feel frey to add those you want in the array
@@ -44,21 +47,29 @@ CKEDITOR.editorConfig = function( config ) {
         tab_size : '4'
     };
 };
-</pre>
+
+{% endraw %}
+{% endhighlight %}
 
 <h2>Options</h2>
 <h3>highlighter</h3>
-<pre class="prettyprint linenums">
+{% highlight js linenos %}
+{% raw %}
+
 // remove the option if you want to output a basic &lt;pre&gt; tag
 // otherwise, choose one of them
 'HIGHLIGHT' // http://highlightjs.org/
 'PRETTIFY' // https://code.google.com/p/google-code-prettify/
 'PRISM' // http://prismjs.com/
 'SYNTAX_HIGHLIGHTER' // http://alexgorbatchev.com/SyntaxHighlighter/
-</pre>
+
+{% endraw %}
+{% endhighlight %}
 
 <h3>modes</h3>
-<pre class="prettyprint linenums">
+{% highlight js linenos %}
+{% raw %}
+
 // Available modes
 ['C/C++'        , 'c_pp']
 ['C9Search'     , 'c9search']
@@ -104,10 +115,14 @@ CKEDITOR.editorConfig = function( config ) {
 ['XML'          , 'xml']
 ['XQuery'       , 'xq']
 ['YAML'         , 'yaml']
-</pre>
 
+
+{% endraw %}
+{% endhighlight %}
 <h3>theme</h3>
-<pre class="prettyprint linenums">
+{% highlight js linenos %}
+{% raw %}
+
 // Bright themes
 'chrome'
 'clouds'
@@ -119,8 +134,13 @@ CKEDITOR.editorConfig = function( config ) {
 'solarized_light'
 'textmate' // default theme
 'tomorrow'
+'xcode'
+'kuroir'
+'katzenmilch'
 
 // Dark themes
+'ambiance'
+'chaos'
 'clouds_midnight'
 'cobalt'
 'idle_fingers'
@@ -131,10 +151,13 @@ CKEDITOR.editorConfig = function( config ) {
 'monokai'
 'pastel_on_dark'
 'solarized_dark'
+'terminal'
 'tomorrow_night'
 'tomorrow_night_blue'
 'tomorrow_night_bright'
 'tomorrow_night_eighties'
 'twilight'
 'vibrant_ink'
-</pre>
+
+{% endraw %}
+{% endhighlight %}

@@ -20,7 +20,7 @@
                         {% if currentPage == link.url or page.layout == link.layout %}
                             {% assign current = 'active' %}
                         {% endif %}
-                        <li class="{{current}}"><a href="{{ link.url }}">{{ link.text }}</a></li>
+                        <li class="{{current}}"><a href="{{site.base_url}}{{ link.url }}">{{ link.text }}</a></li>
                     {% endfor %}
                     <li><a href="https://github.com/prbaron/pbckcode"><i class="icon-code-fork"></i> Fork it on GitHub !</a></li>
                 </ul>

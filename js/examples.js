@@ -31,13 +31,10 @@ jQuery(function($){
     // this part is for demo purpose only
     /***************************************/
 
-        // DEFAULT CONFIGURATION
+    // DEFAULT CONFIGURATION
     CKEDITOR.instances.editor1.on('change', function(e) {
         // append the result into the div
         $('#output1').html(e.editor.getData());
-
-        // relaunch the prettify code
-        prettyPrint();
     });
 
     // PRETTIFY
@@ -45,8 +42,7 @@ jQuery(function($){
         // append the result into the div
         $('#output2').html(e.editor.getData());
 
-        // relaunch the prettify code
-        prettyPrint();
+        prettyPrint(null, document.getElementsByTagName("#output2")[0]);
     });
 
     // PRISM
@@ -54,7 +50,8 @@ jQuery(function($){
         // append the result into the div
         $('#output3').html(e.editor.getData());
 
-        Prism.highlightElement($('#output3').find('code'), false);
+        var output = document.getElementsByTagName("#output3")[0];
+        Prism.highlightElement(output.getElementsByTagName("pre")[0], false);
     });
 
     // HIGHLIGHT
@@ -68,7 +65,7 @@ jQuery(function($){
     // SYNTAX_HIGHLIGHTER
     CKEDITOR.instances.editor5.on('change', function(e) {
         // append the result into the div
-        $('.output').html(e.editor.getData());
+        $('#output5').html(e.editor.getData());
 
         SyntaxHighlighter.highlight();
     });

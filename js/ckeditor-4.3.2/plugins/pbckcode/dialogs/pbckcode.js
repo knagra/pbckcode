@@ -122,7 +122,6 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
             aceEditor = ace.edit("code_" + editor.codeId);
             aceEditor.getSession().setMode("ace/mode/" + settings.modes[0][1]);
             aceEditor.setTheme("ace/theme/" + settings.theme);
-            console.log("tabSize", settings.tab_size);
             aceEditor.getSession().setTabSize(settings.tab_size);
 
             //aceEditor.getSession().useWorker(false);

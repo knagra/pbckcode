@@ -42,7 +42,7 @@ jQuery(function($){
         // append the result into the div
         $('#output2').html(e.editor.getData());
 
-        prettyPrint(null, document.getElementsByTagName("#output2")[0]);
+        prettyPrint(null, document.getElementById("output2"));
     });
 
     // PRISM
@@ -50,8 +50,7 @@ jQuery(function($){
         // append the result into the div
         $('#output3').html(e.editor.getData());
 
-        var output = document.getElementsByTagName("#output3")[0];
-        Prism.highlightElement(output.getElementsByTagName("pre")[0], false);
+        Prism.highlightAll();
     });
 
     // HIGHLIGHT

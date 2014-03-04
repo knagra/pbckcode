@@ -6,6 +6,9 @@ CKEDITOR.editorConfig = function( config ) {
 	config.extraPlugins = 'pbckcode,onchange';
 	config.pbckcode = {
 		theme : "tomorrow_night",
+		modes : [
+		    ['CSS', 'css']
+		],
 		highlighter : "PRISM"
 	};
 };

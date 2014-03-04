@@ -18,19 +18,21 @@ tagline : Examples
             <textarea name="editor1" id="editor1"></textarea>
         </div>
         <div class="grid6">
-            <pre class="prettyprint linenums">
+
+{% highlight js linenos %}
+{% raw %}
+
 CKEDITOR.editorConfig = function( config ) {
     config.toolbarGroups = [
-        // shows the source button
-        { name: 'document', groups: [ 'mode'] },
-        // shows the pbckcode button
         { name: 'pbckcode' }
     ];
     config.extraPlugins = 'pbckcode';
 };
-            </pre>
+
+{% endraw %}
+{% endhighlight %}
         </div>
-        </div>
+    </div>
     <div class="container">
         <div class="grid12">
             <div id="output1"></div>
@@ -46,12 +48,11 @@ CKEDITOR.editorConfig = function( config ) {
             <textarea name="editor2" id="editor2"></textarea>
         </div>
         <div class="grid6">
-            <pre class="prettyprint linenums">
+{% highlight js linenos %}
+{% raw %}
+
 CKEDITOR.editorConfig = function( config ) {
     config.toolbarGroups = [
-        // shows the source button
-        { name: 'document', groups: [ 'mode'] },
-        // shows the pbckcode button
         { name: 'pbckcode' }
     ];
     config.extraPlugins = 'pbckcode';
@@ -61,7 +62,9 @@ CKEDITOR.editorConfig = function( config ) {
         theme : 'clouds',
     };
 }
-            </pre>
+
+{% endraw %}
+{% endhighlight %}
         </div>
     </div>
     <div class="container">
@@ -79,22 +82,23 @@ CKEDITOR.editorConfig = function( config ) {
             <textarea name="editor3" id="editor3"></textarea>
         </div>
         <div class="grid6">
-            <pre class="prettyprint linenums">
+{% highlight js linenos %}
+{% raw %}
+
 CKEDITOR.editorConfig = function( config ) {
     config.toolbarGroups = [
-        // shows the source button
-        { name: 'document', groups: [ 'mode'] },
-        // shows the pbckcode button
         { name: 'pbckcode' }
     ];
-    config.extraPlugins = 'pbckcode,onchange';
+    config.extraPlugins = 'pbckcode';
     config.pbckcode = {
         highlighter : 'PRISM',
         tab_size : '2',
-        theme : 'tomorrow_night',
+        theme : 'tomorrow_night'
     };
 };
-            </pre>
+
+{% endraw %}
+{% endhighlight %}
         </div>
     </div>
     <div class="container">
@@ -112,21 +116,25 @@ CKEDITOR.editorConfig = function( config ) {
             <textarea name="editor4" id="editor4"></textarea>
         </div>
         <div class="grid6">
-            <pre class="prettyprint linenums">
+{% highlight js linenos %}
+{% raw %}
+
 CKEDITOR.editorConfig = function( config ) {
     config.toolbarGroups = [
-        // shows the source button
-        { name: 'document', groups: [ 'mode'] },
-        // shows the pbckcode button
         { name: 'pbckcode' }
     ];
-    config.extraPlugins = 'pbckcode,onchange';
+    config.extraPlugins = 'pbckcode';
     config.pbckcode = {
         highlighter : 'HIGHLIGHT'
-        modes :  [ ["Java" , "java"], ["Markdown" , "markdown"] ],
+        modes :  [
+            ['Java' , 'java'],
+            ['Markdown' , 'markdown']
+        ],
     };
 };
-            </pre>
+
+{% endraw %}
+{% endhighlight %}
         </div>
     </div>
     <div class="container">
@@ -144,22 +152,23 @@ CKEDITOR.editorConfig = function( config ) {
             <textarea name="editor5" id="editor5"></textarea>
         </div>
         <div class="grid6">
-            <pre class="prettyprint linenums">
+{% highlight js linenos %}
+{% raw %}
+
 CKEDITOR.editorConfig = function( config ) {
     config.toolbarGroups = [
-        // shows the source button
-        { name: 'document', groups: [ 'mode'] },
-        // shows the pbckcode button
         { name: 'pbckcode' }
     ];
-    config.extraPlugins = 'pbckcode,onchange';
+    config.extraPlugins = 'pbckcode';
     config.pbckcode = {
         highlighter : 'SYNTAX_HIGHLIGHTER'
         modes :  [ ['PHP', 'php'] ],
         theme : 'clouds_midnight',
     };
 };
-            </pre>
+
+{% endraw %}
+{% endhighlight %}
         </div>
     </div>
     <div class="container">

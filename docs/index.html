@@ -19,12 +19,18 @@ CKEDITOR.editorConfig = function( config ) {
     // CKEDITOR TOOLBAR CUSTOMIZATION
     // I only set the needed buttons, so feel frey to add those you want in the array
     config.toolbarGroups = [
-        { name: 'document', groups: [ 'mode'] }, // shows the source button (for debug)
-        { name: 'pbckcode' } ,                   // shows the pbckcode button
+        { name: 'pbckcode' } ,
+        // you other buttons here
     ];
 
     // CKEDITOR PLUGINS LOADING
-    config.extraPlugins = 'pbckcode'; // load the plugin into the CKEditor instance
+    config.extraPlugins = 'pbckcode'; // add other plugins here (comma separated)
+
+	// ADVANCED CONTENT FILTER (ACF)
+	// ACF protects your CKEditor instance of adding unofficial tags
+	// however it strips out the pre tag of pbckcode plugin
+	// add this rule to enable it, useful when you want to re edit a post
+	config.allowedContent= 'pre[*]{*}(*)'; // add other rules here
 
 
     // PBCKCODE CUSTOMIZATION

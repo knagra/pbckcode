@@ -27,6 +27,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'pbckcode' }
     ];
     config.extraPlugins = 'pbckcode';
+    config.allowedContent= 'pre[*]{*}(*)';
 };
 
 {% endraw %}
@@ -56,6 +57,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'pbckcode' }
     ];
     config.extraPlugins = 'pbckcode';
+    config.allowedContent= 'pre[*]{*}(*)';
     config.pbckcode = {
         highlighter : 'PRETTIFY'
         modes :  [ ['C', 'c_pp'] ],
@@ -90,6 +92,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'pbckcode' }
     ];
     config.extraPlugins = 'pbckcode';
+    config.allowedContent= 'pre[*]{*}(*)';
     config.pbckcode = {
         highlighter : 'PRISM',
         tab_size : '2',
@@ -124,6 +127,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'pbckcode' }
     ];
     config.extraPlugins = 'pbckcode';
+    config.allowedContent= 'pre[*]{*}(*)';
     config.pbckcode = {
         highlighter : 'HIGHLIGHT'
         modes :  [
@@ -160,6 +164,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'pbckcode' }
     ];
     config.extraPlugins = 'pbckcode';
+    config.allowedContent= 'pre[*]{*}(*)';
     config.pbckcode = {
         highlighter : 'SYNTAX_HIGHLIGHTER'
         modes :  [ ['PHP', 'php'] ],

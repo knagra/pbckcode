@@ -4,5 +4,6 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'document', groups: [ 'mode'] },
 		{ name: 'pbckcode' }
 	];
-	config.extraPlugins = 'pbckcode,onchange';
+	config.extraPlugins = 'pbckcode,onchange,sourcearea';
+	config.allowedContent= 'pre[*]{*}(*)';
 };

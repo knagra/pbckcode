@@ -34,6 +34,14 @@
 
 {% include analytics.html %}
 
+<script>
+    // removes line numbers from Highlight tag in Jekyll;
+    var lines = document.getElementsByClassName('lineno');
+    for(var i=0; i<lines.length; i++) {
+        lines[i].innerHTML = "";
+    }
+</script>
+
 <script src="{{site.base_url}}/js/ckeditor-4.3.2/ckeditor.js"></script>
 <script src="{{site.base_url}}/js/highlighters/google-code-prettify/prettify.js"></script>
 <script src="{{site.base_url}}/js/highlighters/prism/prism.js"></script>

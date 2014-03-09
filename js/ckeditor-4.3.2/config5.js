@@ -3,7 +3,8 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'document', groups: [ 'mode'] },
 		{ name: 'pbckcode' }
 	];
-	config.extraPlugins = 'pbckcode,onchange';
+	config.extraPlugins = 'pbckcode,onchange,sourcearea';
+	config.allowedContent= 'pre[*]{*}(*)';
 	config.pbckcode = {
 		modes :  [ ['PHP', 'php'] ],
 		theme : 'clouds_midnight',

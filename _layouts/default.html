@@ -28,5 +28,13 @@
 
     {% include analytics.html %}
 
+    <script>
+        // removes line numbers from Highlight tag in Jekyll;
+        var lines = document.getElementsByClassName('lineno');
+        for(var i=0; i<lines.length; i++) {
+            lines[i].innerHTML = "";
+        }
+    </script>
+
 </body>
 </html>

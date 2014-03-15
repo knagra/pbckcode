@@ -57,7 +57,17 @@ CKEDITOR.instances.editor4.on('change', function(e) {
     // append the result into the div
     document.getElementById('output4').innerHTML = e.editor.getData();
 
-    hljs.highlightBlock(document.getElementById('output4').children[0].children[0]);
+    var output4 = document.getElementById('output4');
+
+    if(output4) {
+       var pre = output4.children[0];
+        if(pre) {
+            var code = pre.children[0];
+            if(code) {
+                hljs.highlightBlock(code);
+            }
+        }
+    }
 });
 
 // SYNTAX_HIGHLIGHTER

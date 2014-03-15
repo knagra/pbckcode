@@ -1,4 +1,5 @@
 base_url : http://prbaron.github.io/pbckcode
+dev : false
 exclude : ['sass']
 google_analytics_id: UA-21369110-4
 encoding : UTF-8

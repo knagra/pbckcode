@@ -9,5 +9,5 @@ CKEDITOR.plugins.setLang("pbckcode", "fr",
     tabSize  : 'Indentation',
     theme    : 'Theme',
     softTab  : 'Enable soft tabs',
-    emmet    : 'Enable Emmet'
+    emmet    : 'Activer Emmet'
 });

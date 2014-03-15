@@ -4,5 +4,8 @@ CKEDITOR.plugins.setLang("pbckcode", "en",
     addCode  : 'Add code',
     editCode : 'Edit code',
     mode     : 'Mode',
-    tabSize  : 'Tab size'
+    tabSize  : 'Tab size',
+    theme    : 'Theme',
+    softTab  : 'Enable soft tabs',
+    emmet    : 'Enable Emmet'
 });

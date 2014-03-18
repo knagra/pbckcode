@@ -28,3 +28,8 @@
 .cke_reset_all .ace_dark * {
     color : inherit;
 }
+
+.cke_disabled {
+    color: rgba(255, 255, 255, .85) !important;
+    opacity: .6;
+}

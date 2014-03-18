@@ -20,13 +20,48 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         tab_size : 4
     };
 
+    var themes = [
+        ['Light - chrome','chrome'],
+        ['Light - clouds', 'clouds'],
+        ['Light - crimson_editor','crimson_editor'],
+        ['Light - dawn', 'dawn'],
+        ['Light - dreamweaver', 'dreamweaver'],
+        ['Light - eclipse', 'eclipse'],
+        ['Light - github', 'github'],
+        ['Light - solarized_light','solarized_light'],
+        ['Light - textmate', 'textmate'],
+        ['Light - tomorrow','tomorrow'],
+        ['Light - xcode','xcode'],
+        ['Light - kuroir','kuroir'],
+        ['Light - katzenmilch','katzenmilch'],
+        ['Dark - ambiance','ambiance'],
+        ['Dark - chaos','chaos'],
+        ['Dark - clouds_midnight','clouds_midnight'],
+        ['Dark - cobalt','cobalt'],
+        ['Dark - idle_fingers','idle_fingers'],
+        ['Dark - kr_theme','kr_theme'],
+        ['Dark - merbivore','merbivore'],
+        ['Dark - merbivore_soft','merbivore_soft'],
+        ['Dark - mono_industrial','mono_industrial'],
+        ['Dark - monokai','monokai'],
+        ['Dark - pastel_on_dark','pastel_on_dark'],
+        ['Dark - solarized_dark','solarized_dark'],
+        ['Dark - terminal','terminal'],
+        ['Dark - tomorrow_night','tomorrow_night'],
+        ['Dark - tomorrow_night_blue','tomorrow_night_blue'],
+        ['Dark - tomorrow_night_bright','tomorrow_night_bright'],
+        ['Dark - tomorrow_night_eighties','tomorrow_night_eighties'],
+        ['Dark - twilight','twilight'],
+        ['Dark - vibrant_ink','vibrant_ink']
+    ];
+
     var tab_sizes = ["1", "2", "4", "8"];
 
     // merge user settings with default settings
     var settings = CKEDITOR.tools.extend(DEFAULT_SETTINGS, editor.config.pbckcode, true);
 
 	// CKEditor variables
-	var dialog;
+	var dialog, okButton;
     var shighlighter = new PBSyntaxHighlighter(settings.highlighter);
 
     // ACE variables
@@ -38,56 +73,26 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         label    : editor.lang.pbckcode.editor,
         elements : [
             {
-                type     : 'hbox',
-                children : [
-                    {
-                        type      : 'select',
-                        id        : 'code-select',
-                        label     : editor.lang.pbckcode.mode,
-                        items     : settings.modes,
-                        'default' : settings.modes[0][1],
-                        setup     : function (element) {
-                            if (element) {
-                                element = element.getAscendant('pre', true);
-                                this.setValue(element.getAttribute("data-pbcklang"));
-                            }
-                        },
-                        commit    : function (element) {
-                            if (element) {
-                                element = element.getAscendant('pre', true);
-                                element.setAttribute("data-pbcklang", this.getValue());
-                            }
-                        },
-                        onChange  : function (element) {
-                            aceSession.setMode("ace/mode/" + this.getValue());
-                        }
-                    },
-                    {
-                        type      : 'select',
-                        id        : 'code-tabsize-select',
-                        label     : 'Tab size',
-                        items     : tab_sizes,
-                        'default' : tab_sizes[2],
-                        setup     : function (element) {
-                            if (element) {
-                                element = element.getAscendant('pre', true);
-                                this.setValue(element.getAttribute("data-pbcktabsize"));
-                            }
-                        },
-                        commit    : function (element) {
-                            if (element) {
-                                element = element.getAscendant('pre', true);
-                                element.setAttribute("data-pbcktabsize", this.getValue());
-                            }
-                        },
-                        onChange  : function (element) {
-                            if (element) {
-                                whitespace.convertIndentation(aceSession, " ", this.getValue());
-                                aceSession.setTabSize(this.getValue());
-                            }
-                        }
+                type      : 'select',
+                id        : 'code-select',
+                label     : editor.lang.pbckcode.mode,
+                items     : settings.modes,
+                'default' : settings.modes[0][1],
+                setup     : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        this.setValue(element.getAttribute("data-pbcklang"));
                     }
-                ]
+                },
+                commit    : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        element.setAttribute("data-pbcklang", this.getValue());
+                    }
+                },
+                onChange  : function (element) {
+                    aceSession.setMode("ace/mode/" + this.getValue());
+                }
             },
             {
                 type   : 'html',
@@ -95,6 +100,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
                 id     : 'code-textarea',
                 style  : 'position: absolute; top: 80px; left: 10px; right: 10px; bottom: 50px;',
                 setup  : function (element) {
+
                     // get the value of the editor
                     var code = element.getHtml();
 
@@ -109,23 +115,169 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
                 },
                 commit : function (element) {
                     element.setText(aceEditor.getValue());
+                },
+                onShow : function() {
+                    setButtonState(okButton, aceEditor.getValue());
                 }
             }
         ]
     };
 
+    var settingsPanel = {
+        id       : 'settings',
+        label    : editor.lang.pbckcode.settings,
+        elements : [
+//            {
+//                type      : 'select',
+//                id        : 'code-select',
+//                label     : 'Mode',
+//                items     : settings.modes,
+//                'default' : settings.modes[0][1],
+//                setup     : function (element) {
+//                    if (element) {
+//                        element = element.getAscendant('pre', true);
+//                        this.setValue(element.getAttribute("data-pbcklang"));
+//                    }
+//                },
+//                commit    : function (element) {
+//                    if (element) {
+//                        element = element.getAscendant('pre', true);
+//                        element.setAttribute("data-pbcklang", this.getValue());
+//                    }
+//                },
+//                onChange  : function (element) {
+//                    aceSession.setMode("ace/mode/" + this.getValue());
+//                }
+//            },
+            {
+                type      : 'select',
+                id        : 'settings-tabsize',
+                label     : editor.lang.pbckcode.tabSize,
+                items     : tab_sizes,
+                'default' : tab_sizes[2],
+                                labelLayout : 'horizontal',
+
+                setup     : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        this.setValue(element.getAttribute("data-pbcktabsize"));
+                        // get from LocalStorage
+                    }
+                },
+                commit    : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        element.setAttribute("data-pbcktabsize", this.getValue());
+                        // set into LocalStorage
+                    }
+                },
+                onChange  : function (element) {
+                    if (element) {
+                        whitespace.convertIndentation(aceSession, " ", this.getValue());
+                        aceSession.setTabSize(this.getValue());
+                    }
+                }
+            },
+            {
+                type      : 'select',
+                id        : 'settings-theme',
+                label     : editor.lang.pbckcode.theme,
+                items     : themes,
+                'default' : themes[2][1],
+                labelLayout : 'horizontal',
+                setup     : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        this.setValue(element.getAttribute("data-pbcktabsize"));
+                        // set into LocalStorage
+                    }
+                },
+                commit    : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        element.setAttribute("data-pbcktabsize", this.getValue());
+                    }
+                },
+                onChange  : function (element) {
+                    if (element) {
+                        aceEditor.setTheme("ace/theme/" + this.getValue());
+                    }
+                }
+            },
+            {
+                type      : 'checkbox',
+                id        : 'settings-softtab',
+                label     : editor.lang.pbckcode.softTab,
+                checked   : true, //TODO get from LocalStorage
+                                labelLayout : 'horizontal',
+
+                setup     : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        this.setValue(element.getAttribute("data-pbcktabsize"));
+                        // get from LocalStorage
+                    }
+                },
+                commit    : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        element.setAttribute("data-pbcktabsize", this.getValue());
+                        // set into LocalStorage
+                    }
+                },
+                onChange  : function (element) {
+                    if (element) {
+                        aceSession.setUseSoftTabs(this.getValue());
+                    }
+                }
+            },
+            {
+                type      : 'checkbox',
+                id        : 'settings-emmet',
+                label     : editor.lang.pbckcode.emmet,
+                checked   : true, // TODO set from LocalStorage
+                                labelLayout : 'horizontal',
+
+                setup     : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        this.setValue(element.getAttribute("data-pbcktabsize"));
+                        // get from LocalStorage
+                    }
+                },
+                commit    : function (element) {
+                    if (element) {
+                        element = element.getAscendant('pre', true);
+                        element.setAttribute("data-pbcktabsize", this.getValue());
+                        // set into LocalStorage
+                    }
+                },
+                onChange  : function (element) {
+                    if (element) {
+                        aceEditor.setOption("enableEmmet", this.getValue());
+                    }
+                }
+            },
+        ]
+    };
+
+
     // dialog code
     return {
         // Basic properties of the dialog window: title, minimum size.
         title     : editor.lang.pbckcode.title,
-        minWidth  : 600,
-        minHeight : 400,
+        width  : 600,
+        height : 400,
+        resizable:      CKEDITOR.DIALOG_RESIZE_BOTH,
         // Dialog window contents definition.
         contents  : [
-            editorPanel
+            editorPanel,
+            settingsPanel
         ],
         onLoad    : function () {
 			dialog = this;
+			okButton = dialog.getButton('ok');
+
             // we load the ACE plugin to our div
             aceEditor = ace.edit(dialog.getContentElement('editor', 'code-textarea')
             	.getElement().getId());
@@ -143,6 +295,10 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
 
             // load ace extensions
             whitespace = ace.require('ace/ext/whitespace');
+
+            aceEditor.on('change', function(e) {
+                setButtonState(okButton, aceEditor.getValue());
+            });
         },
         onShow    : function () {
             // get the selection
@@ -208,6 +364,15 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         }
     };
 });
+
+function setButtonState(button, value) {
+    if(CKEDITOR.tools.isEmpty(value)) {
+        button.disable();
+    }
+    else {
+        button.enable();
+    }
+}
 
 /*
  * Resize the ACE Editor

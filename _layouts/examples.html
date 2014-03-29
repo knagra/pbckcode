@@ -11,7 +11,11 @@
     <link rel="shortcut icon" href="{{ site.site_url }}/img/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="{{ site.site_url }}/img/favicon.png">
 
-    <link rel="stylesheet" href="{{ site.site_url }}/css/style.css">
+    {% if site.dev %}
+        <link rel="stylesheet" href="{{ site.base_url }}/css/style.css">
+    {% else %}
+        <link rel="stylesheet" href="{{ site.site_url }}/css/style.css">
+    {% endif %}
 
     <link href="{{site.base_url}}/js/highlighters/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"/>
     <link href="{{site.base_url}}/js/highlighters/prism/prism.css" rel="stylesheet" type="text/css"/>

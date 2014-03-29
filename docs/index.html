@@ -17,10 +17,10 @@ tagline : Documentation
 
 CKEDITOR.editorConfig = function( config ) {
     // CKEDITOR TOOLBAR CUSTOMIZATION
-    // I only set the needed buttons, so feel frey to add those you want in the array
+    // I only set the needed buttons, so feel free to add those you want in the array
     config.toolbarGroups = [
         { name: 'pbckcode' } ,
-        // you other buttons here
+        // your other buttons here
     ];
 
     // CKEDITOR PLUGINS LOADING
@@ -30,6 +30,7 @@ CKEDITOR.editorConfig = function( config ) {
     // ACF protects your CKEditor instance of adding unofficial tags
     // however it strips out the pre tag of pbckcode plugin
     // add this rule to enable it, useful when you want to re edit a post
+    // Only needed on v1.2.0-
     config.allowedContent= 'pre[*]{*}(*)'; // add other rules here
 
     // PBCKCODE CUSTOMIZATION
@@ -61,7 +62,7 @@ CKEDITOR.editorConfig = function( config ) {
 {% highlight js linenos %}
 {% raw %}
 
-// remove the option if you want to output a basic &lt;pre&gt; tag
+// remove the option if you want to output a basic <pre> tag
 // otherwise, choose one of them
 'HIGHLIGHT' // http://highlightjs.org/
 'PRETTIFY' // https://code.google.com/p/google-code-prettify/

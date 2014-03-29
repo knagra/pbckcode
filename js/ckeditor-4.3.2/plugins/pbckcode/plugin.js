@@ -19,7 +19,7 @@ CKEDITOR.plugins.add('pbckcode', {
 
         // load CSS for the dialog
         editor.on('instanceReady', function () {
-            CKEDITOR.document.appendStyleSheet(plugin.path + "dialogs/style.css");
+            CKEDITOR.document.appendStyleSheet(plugin.path + "css/style.css");
         });
 
         // add the button in the toolbar

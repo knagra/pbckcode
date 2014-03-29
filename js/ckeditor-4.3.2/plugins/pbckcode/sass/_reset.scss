@@ -1,0 +1,29 @@
+.ace_editor * {
+    font-family : 'Monaco', 'Menlo', 'Ubuntu Mono', 'Droid Sans Mono', 'Consolas', monospace !important;
+    font-size   : 12px !important;
+}
+
+/* good font color on dark theme */
+.cke_reset_all .ace_dark * {
+    color : inherit;
+}
+
+/* prevent body scrolling at the end of dialog scrolling */
+html.dialog-open body {
+    overflow : hidden;
+}
+
+.cke_disabled {
+    color   : rgba(255, 255, 255, .85) !important;
+    opacity : .6;
+}
+
+.table-container {
+    position : relative;
+}
+
+.table-container > .table {
+    margin-bottom : 17px;
+    position      : absolute;
+    overflow-y    : scroll;
+}

@@ -18,15 +18,18 @@
     vertical-align   : middle !important;
 }
 
-.cke_dialog_ui_labeled_label {
-    display: inline-block !important;
-    margin-right: 20px;
-    text-align: right;
-    width: 140px;
-}
+.form-control {
+    .cke_dialog_ui_labeled_label {
+        display: inline-block !important;
+        margin-right: 20px;
+        text-align: right;
+        width: 140px;
+    }
 
-.cke_dialog_ui_checkbox {
-    margin-left : 160px;
+    &.cke_dialog_ui_checkbox {
+        margin-left : 160px;
+    }
+
 }
 
 /*.form-control {

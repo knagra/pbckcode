@@ -62,37 +62,37 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Ctrl+Alt+Up",
-            mac    : "Ctrl+Option+Up",
+            mac    : "Command+Option+Up",
             action : "Add multi-cursor above"
         },
         {
             pc     : "Ctrl+Alt+Down",
-            mac    : "Ctrl+Option+Down",
+            mac    : "Command+Option+Down",
             action : "Add multi-cursor below"
         },
         {
             pc     : "Ctrl+Alt+Right",
-            mac    : "Ctrl+Option+Right",
+            mac    : "Command+Option+Right",
             action : "Add next occurrence to multi-selection"
         },
         {
             pc     : "Ctrl+Alt+Left",
-            mac    : "Ctrl+Option+Left",
+            mac    : "Command+Option+Left",
             action : "Add previous occurrence to multi-selection"
         },
         {
             pc     : "",
-            mac    : "Ctrl+L",
+            mac    : "Command+L",
             action : "Center selection"
         },
         {
             pc     : "Ctrl+Shift+U",
-            mac    : "Ctrl+Shift+U",
+            mac    : "Command+Shift+U",
             action : "Change to lower case"
         },
         {
             pc     : "Ctrl+U",
-            mac    : "Ctrl+U",
+            mac    : "Command+U",
             action : "Change to upper case"
         },
         {
@@ -142,12 +142,12 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Down",
-            mac    : "Down, Ctrl+N",
+            mac    : "Down, Command+N",
             action : "Go line down"
         },
         {
             pc     : "Up",
-            mac    : "Up, Ctrl+P",
+            mac    : "Up, Command+P",
             action : "Go line up"
         },
         {
@@ -157,7 +157,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Left",
-            mac    : "Left, Ctrl+B",
+            mac    : "Left, Command+B",
             action : "Go to left"
         },
         {
@@ -167,12 +167,12 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Alt+Right, End",
-            mac    : "Command+Right, End, Ctrl+E",
+            mac    : "Command+Right, End, Command+E",
             action : "Go to line end"
         },
         {
             pc     : "Alt+Left, Home",
-            mac    : "Command+Left, Home, Ctrl+A",
+            mac    : "Command+Left, Home, Command+A",
             action : "Go to line start"
         },
         {
@@ -182,7 +182,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "PageDown",
-            mac    : "Option+PageDown, Ctrl+V",
+            mac    : "Option+PageDown, Command+V",
             action : "Go to page down"
         },
         {
@@ -192,7 +192,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Right",
-            mac    : "Right, Ctrl+F",
+            mac    : "Right, Command+F",
             action : "Go to right"
         },
         {
@@ -237,12 +237,12 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Ctrl+Alt+Shift+Up",
-            mac    : "Ctrl+Option+Shift+Up",
+            mac    : "Command+Option+Shift+Up",
             action : "Move multicursor from current line to the line above"
         },
         {
             pc     : "Ctrl+Alt+Shift+Down",
-            mac    : "Ctrl+Option+Shift+Down",
+            mac    : "Command+Option+Shift+Down",
             action : "Move multicursor from current line to the line below"
         },
         {
@@ -262,12 +262,12 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Ctrl+Alt+Shift+Right",
-            mac    : "Ctrl+Option+Shift+Right",
+            mac    : "Command+Option+Shift+Right",
             action : "Remove current occurrence from multi-selection and move to next"
         },
         {
             pc     : "Ctrl+Alt+Shift+Left",
-            mac    : "Ctrl+Option+Shift+Left",
+            mac    : "Command+Option+Shift+Left",
             action : "Remove current occurrence from multi-selection and move to previous"
         },
         {
@@ -277,7 +277,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Alt+Delete",
-            mac    : "Ctrl+K",
+            mac    : "Command+K",
             action : "Remove to line end"
         },
         {
@@ -287,7 +287,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Ctrl+Backspace",
-            mac    : "Option+Backspace, Ctrl+Option+Backspace",
+            mac    : "Option+Backspace, Command+Option+Backspace",
             action : "Remove word left"
         },
         {
@@ -332,7 +332,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Ctrl+Shift+L",
-            mac    : "Ctrl+Shift+L",
+            mac    : "Command+Shift+L",
             action : "Select all from multi-selection"
         },
         {
@@ -422,7 +422,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
         },
         {
             pc     : "Ctrl+T",
-            mac    : "Ctrl+T",
+            mac    : "Command+T",
             action : "Transpose letters"
         },
         {
@@ -543,6 +543,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
                 items     : tab_sizes,
                 'default' : tab_sizes[2],
                 style     : 'width: 80px;',
+                className : 'form-control',
                 setup     : function (element) {
                     if (element) {
                         element = element.getAscendant('pre', true);
@@ -568,6 +569,8 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
                 label     : lang.settings.theme,
                 items     : themes,
                 'default' : themes[2][1],
+                className : 'form-control',
+
 //                setup     : function (element) {
 //                    if (element) {
 //                        element = element.getAscendant('pre', true);
@@ -592,6 +595,8 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
                 items     : font_sizes,
                 'default' : font_sizes[2][1],
                 style     : 'width: 80px;',
+                className : 'form-control',
+
 
 //                setup       : function (element) {
 //                    if (element) {
@@ -611,10 +616,12 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
                 }
             },
             {
-                type     : 'checkbox',
-                id       : 'settings-softTab',
-                label    : lang.settings.softTab,
-                checked  : true, //TODO get from LocalStorage
+                type      : 'checkbox',
+                id        : 'settings-softTab',
+                label     : lang.settings.softTab,
+                checked   : true, //TODO get from LocalStorage
+                className : 'form-control',
+
                 setup    : function (element) {
                     if (element) {
                         element = element.getAscendant('pre', true);
@@ -636,10 +643,12 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
                 }
             },
             {
-                type     : 'checkbox',
-                id       : 'settings-emmet',
-                label    : lang.settings.emmet,
-                checked  : true, // TODO set from LocalStorage
+                type      : 'checkbox',
+                id        : 'settings-emmet',
+                label     : lang.settings.emmet,
+                checked   : true, // TODO set from LocalStorage
+                className : 'form-control',
+
                 setup    : function (element) {
                     if (element) {
                         element = element.getAscendant('pre', true);
@@ -661,10 +670,11 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
                 }
             },
             {
-                type     : 'checkbox',
-                id       : 'settings-showInvisible',
-                label    : lang.settings.showInvisible,
-                checked  : true, //TODO get from LocalStorage
+                type      : 'checkbox',
+                id        : 'settings-showInvisible',
+                label     : lang.settings.showInvisible,
+                checked   : true, //TODO get from LocalStorage
+                className : 'form-control',
                 setup    : function (element) {
                     if (element) {
                         element = element.getAscendant('pre', true);
@@ -745,10 +755,14 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
 
             // save the aceEditor into the editor object for the resize event
             editor.aceEditor = aceEditor;
-
+            ace.require("ace/ext/language_tools");
             // set default settings
             aceEditor.setTheme("ace/theme/" + settings.theme);
             aceEditor.setHighlightActiveLine(true);
+            aceEditor.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true
+            });
             aceSession = aceEditor.getSession();
             aceSession.setMode("ace/mode/" + settings.modes[0][1]);
             aceSession.setTabSize(settings.tab_size);

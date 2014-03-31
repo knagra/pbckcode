@@ -1,9 +1,10 @@
 
 // needed js files
 var js = {
-    ace                : "//cdn.jsdelivr.net/ace/1.1.3/noconflict/ace.js",
-    aceExtWhitespace   : "//cdn.jsdelivr.net/ace/1.1.3/noconflict/ext-whitespace.js",
-    pbSyntaxHighlighter: CKEDITOR.plugins.getPath('pbckcode') + "dialogs/PBSyntaxHighlighter.js"
+    ace                 : "//cdn.jsdelivr.net/ace/1.1.3/noconflict/ace.js",
+    aceExtWhitespace    : "//cdn.jsdelivr.net/ace/1.1.3/noconflict/ext-whitespace.js",
+    aceExtLanguageTools : "//cdn.jsdelivr.net/ace/1.1.3/noconflict/ext-language_tools.js",
+    pbSyntaxHighlighter : CKEDITOR.plugins.getPath('pbckcode') + "dialogs/PBSyntaxHighlighter.js"
 };
 
 var commandName = 'pbckcode';
@@ -63,7 +64,10 @@ CKEDITOR.plugins.add('pbckcode', {
         CKEDITOR.scriptLoader.load([js.ace, js.pbSyntaxHighlighter], function() {
             editor.getCommand(commandName).enable();
 
-            CKEDITOR.scriptLoader.load([js.aceExtWhitespace]);
+            CKEDITOR.scriptLoader.load([
+                js.aceExtWhitespace,
+                js.aceExtLanguageTools
+            ]);
         });
     }
 });

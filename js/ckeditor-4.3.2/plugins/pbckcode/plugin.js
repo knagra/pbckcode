@@ -1,9 +1,10 @@
-
 // needed js files
 var js = {
     ace                 : "//cdn.jsdelivr.net/ace/1.1.3/noconflict/ace.js",
     aceExtWhitespace    : "//cdn.jsdelivr.net/ace/1.1.3/noconflict/ext-whitespace.js",
     aceExtLanguageTools : "//cdn.jsdelivr.net/ace/1.1.3/noconflict/ext-language_tools.js",
+    aceExtEmmet         : "//cdn.jsdelivr.net/ace/1.1.3/noconflict/ext-emmet.js",
+    emmet : "http://nightwing.github.io/emmet-core/emmet.js",
     pbSyntaxHighlighter : CKEDITOR.plugins.getPath('pbckcode') + "dialogs/PBSyntaxHighlighter.js"
 };
 
@@ -13,9 +14,9 @@ var commandName = 'pbckcode';
  * Plugin definition
  */
 CKEDITOR.plugins.add('pbckcode', {
-    icons      : 'pbckcode',
-    lang       : ['fr', 'en'],
-    init       : function (editor) {
+    icons : 'pbckcode',
+    lang  : ['fr', 'en'],
+    init  : function (editor) {
         var plugin = this;
 
         // load CSS for the dialog
@@ -31,16 +32,16 @@ CKEDITOR.plugins.add('pbckcode', {
         });
 
         // link the button to the command
-		editor.addCommand(commandName, new CKEDITOR.dialogCommand('pbckcodeDialog', {
-				allowedContent: 'pre[*]{*}(*)'
-			})
-		);
+        editor.addCommand(commandName, new CKEDITOR.dialogCommand('pbckcodeDialog', {
+            allowedContent : 'pre[*]{*}(*)'
+        })
+        );
 
-		// disable the button while the required js files are not loaded
-	    editor.getCommand(commandName).disable();
+        // disable the button while the required js files are not loaded
+        editor.getCommand(commandName).disable();
 
         // add the plugin dialog element to the plugin
-		CKEDITOR.dialog.add('pbckcodeDialog', plugin.path + 'dialogs/pbckcode.js');
+        CKEDITOR.dialog.add('pbckcodeDialog', plugin.path + 'dialogs/pbckcode.js');
 
         // add the context menu
         if (editor.contextMenu) {
@@ -61,12 +62,14 @@ CKEDITOR.plugins.add('pbckcode', {
 
         // Load the required js files
         // enable the button when loaded
-        CKEDITOR.scriptLoader.load([js.ace, js.pbSyntaxHighlighter], function() {
+        CKEDITOR.scriptLoader.load([js.ace, js.pbSyntaxHighlighter], function () {
             editor.getCommand(commandName).enable();
 
             CKEDITOR.scriptLoader.load([
                 js.aceExtWhitespace,
-                js.aceExtLanguageTools
+                js.aceExtLanguageTools,
+                js.aceExtEmmet,
+                js.emmet
             ]);
         });
     }

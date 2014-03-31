@@ -755,14 +755,7 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
 
             // save the aceEditor into the editor object for the resize event
             editor.aceEditor = aceEditor;
-            ace.require("ace/ext/language_tools");
-            // set default settings
-            aceEditor.setTheme("ace/theme/" + settings.theme);
-            aceEditor.setHighlightActiveLine(true);
-            aceEditor.setOptions({
-                enableBasicAutocompletion: true,
-                enableSnippets: true
-            });
+
             aceSession = aceEditor.getSession();
             aceSession.setMode("ace/mode/" + settings.modes[0][1]);
             aceSession.setTabSize(settings.tab_size);
@@ -770,6 +763,16 @@ CKEDITOR.dialog.add('pbckcodeDialog', function (editor) {
 
             // load ace extensions
             whitespace = ace.require('ace/ext/whitespace');
+            ace.require("ace/ext/language_tools");
+            ace.require("ace/ext/emmet");
+
+            // set default settings
+            aceEditor.setTheme("ace/theme/" + settings.theme);
+            aceEditor.setHighlightActiveLine(true);
+            aceEditor.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true
+            });
 
             aceEditor.on('change', function (e) {
                 setButtonState(okButton, aceEditor.getValue());

@@ -1,14 +1,27 @@
 base_url : http://localhost:4000
-dev : true
+dev : false
 exclude : ['sass']
 encoding : UTF-8
-markdown: rdiscount
-pygments: true
 site_url : http://www.pierrebaron.fr
 navigation:
+- text: HOME
+  url: /
+- text: BLOG
+  url: /blog/
+  layout: post
+- text: CONTACT
+  url: /contact/
+subnavigation:
 - text: Index
   url: /
 - text: Examples
   url: /examples/
+  dropdown :
+    - text: Basic example
+      url: basic/
 - text: Docs
   url: /docs/
+sass:
+    sass_dir: _sass
+    style: :compressed
+

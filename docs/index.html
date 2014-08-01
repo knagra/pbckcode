@@ -2,17 +2,21 @@
 layout  : default
 title   : Documentation
 tagline : Documentation
+submenu : Docs
 ---
 
-<h2>Installation</h2>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <h2 class="section-title">Installation</h2>
+            <div class="col-xs-12">
+                <ol>
+                    <li>Grab a copy of the plugin.</li>
+                    <li>Place the plugin into the plugins folder of CKEditor <em>{path to CKEditor}/plugins/</em>.</li>
+                    <li>Open the <strong>config.js</strong> file of your CKEditor and add the following lines :</li>
+                </ol>
 
-<ol>
-    <li>Grab a copy of the plugin.</li>
-    <li>Place the plugin into the plugins folder of CKEditor <em>{path to CKEditor}/plugins/</em>. </li>
-    <li>Open the <strong>config.js</strong> file of your CKEditor and add the following lines : </li>
-</ol>
-
-{% highlight js linenos %}
+{% highlight js linenos=table %}
 {% raw %}
 
 CKEDITOR.editorConfig = function( config ) {
@@ -44,7 +48,7 @@ CKEDITOR.editorConfig = function( config ) {
         // An array of the available modes for you plugin.
         // The key corresponds to the string shown in the select tag.
         // The value correspond to the loaded file for ACE Editor.
-        modes :  [ ['HTML', 'html'], ['CSS', 'css'], ['PHP', 'php'], ['JS', 'javascript'] ],
+        modes : [ ['HTML', 'html'], ['CSS', 'css'], ['PHP', 'php'], ['JS', 'javascript'] ],
 
         // The theme of the ACE Editor of the plugin.
         theme : 'textmate',
@@ -56,10 +60,20 @@ CKEDITOR.editorConfig = function( config ) {
 
 {% endraw %}
 {% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
 
-<h2>Options</h2>
-<h3>highlighter</h3>
-{% highlight js linenos %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <h2 class="section-title">Options</h2>
+            <div class="col-xs-12">
+
+                <h3>highlighter</h3>
+
+{% highlight js linenos=table %}
 {% raw %}
 
 // remove the option if you want to output a basic <pre> tag
@@ -72,8 +86,9 @@ CKEDITOR.editorConfig = function( config ) {
 {% endraw %}
 {% endhighlight %}
 
-<h3>modes</h3>
-{% highlight js linenos %}
+                <h3>modes</h3>
+
+{% highlight js linenos=table %}
 {% raw %}
 
 // Available modes
@@ -125,8 +140,10 @@ CKEDITOR.editorConfig = function( config ) {
 
 {% endraw %}
 {% endhighlight %}
-<h3>theme</h3>
-{% highlight js linenos %}
+
+                <h3>theme</h3>
+
+{% highlight js linenos=table %}
 {% raw %}
 
 // Bright themes
@@ -167,3 +184,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 {% endraw %}
 {% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>

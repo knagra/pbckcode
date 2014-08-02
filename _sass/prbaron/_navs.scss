@@ -29,3 +29,20 @@
         }
     }
 }
+
+.nav {
+    .open > a {
+        &,
+        &:hover,
+        &:focus {
+            border-color : transparent;
+        }
+    }
+    .open.active > a {
+        &,
+        &:hover,
+        &:focus {
+            border-color : $nav-pills-active-link-hover-color;
+        }
+    }
+}

@@ -19,6 +19,13 @@ subnavigation:
   dropdown :
     - text: Basic example
       url: basic/
+    - text: Options example
+      url: options/
+    - text: Full example
+      url: full/
+    - text: Custom JavaScript sources
+      url: custom/
+      label : 1.2.3
 - text: Docs
   url: /docs/
 sass:

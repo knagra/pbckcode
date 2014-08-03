@@ -1,4 +1,4 @@
-prettyPrint();
+/* global $*/
 
 // DEFAULT CONFIGURATION
 CKEDITOR.replace('editor1', {
@@ -32,8 +32,9 @@ CKEDITOR.replace('editor5', {
 
 // DEFAULT CONFIGURATION
 CKEDITOR.instances.editor1.on('change', function(e) {
+console.log("changed !");
     // append the result into the div
-    document.getElementById('output1').innerHTML = e.editor.getData();
+    $('output1').html(e.editor.getData());
 });
 
 // PRETTIFY

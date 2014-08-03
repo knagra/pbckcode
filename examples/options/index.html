@@ -1,20 +1,32 @@
 ---
 layout      : examples
-title       : Custom Example
-tagline     : Custom Example
+title       : Options Example
+tagline     : Options Example
 submenu     : Examples
 highlighter : '/google-code-prettify/prettify.js'
+example     : '/js/example-options.js'
 ---
 
 <section class="section">
     <div class="container">
         <div class="row">
-            <h2 class="section-title">Input</h2>
+            <h2 class="section-title">Example</h2>
 
             <div class="col-xs-6">
                 <textarea name="editor1" id="editor1"></textarea>
             </div>
             <div class="col-xs-6">
+                 <div id="output1"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <h2 class="section-title">Configuration</h2>
+
+            <div class="col-xs-12">
 {% highlight js linenos=table %}
 {% raw %}
 
@@ -24,7 +36,7 @@ CKEDITOR.editorConfig = function( config ) {
     ];
     config.extraPlugins = 'pbckcode';
     config.pbckcode = {
-        highlighter : 'PRISM',
+        highlighter : 'PRETTIFY',
         tab_size : '2',
         theme : 'tomorrow_night',
         modes :  [
@@ -36,17 +48,6 @@ CKEDITOR.editorConfig = function( config ) {
 
 {% endraw %}
 {% endhighlight %}
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div class="row">
-            <h2 class="section-title">Output</h2>
-
-            <div class="col-xs-12">
-                <div id="output1"></div>
             </div>
         </div>
     </div>

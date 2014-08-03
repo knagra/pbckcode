@@ -1,0 +1,49 @@
+---
+layout      : examples
+title       : Custom Example
+tagline     : Custom Example
+submenu     : Examples
+highlighter : '/prism/prism.js'
+---
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <h2 class="section-title">Input</h2>
+
+            <div class="col-xs-6">
+                <textarea name="editor1" id="editor1"></textarea>
+            </div>
+            <div class="col-xs-6">
+{% highlight js linenos=table %}
+{% raw %}
+
+CKEDITOR.editorConfig = function( config ) {
+    config.toolbarGroups = [
+        { name: 'pbckcode' }
+    ];
+    config.extraPlugins = 'pbckcode';
+    config.pbckcode = {
+        highlighter : 'PRISM',
+        js : {
+        }
+    };
+};
+
+{% endraw %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <h2 class="section-title">Output</h2>
+
+            <div class="col-xs-12">
+                <div id="output1"></div>
+            </div>
+        </div>
+    </div>
+</section>

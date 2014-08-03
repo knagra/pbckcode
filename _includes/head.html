@@ -10,4 +10,8 @@
     <link rel="apple-touch-icon-precomposed" href="{{'/img/favicon.png' | prepend: site.site_url}}">
 
     <link rel="stylesheet" href="{{'/css/style.css' | prepend : site.base_url}}">
+
+    {% if page.layout == "examples" %}
+            <link rel="stylesheet" href="{{'/js/highlighters/google-code-prettify/prettify.css' | prepend : site.base_url}}">
+    {% endif %}
 </head>

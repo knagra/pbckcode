@@ -1,13 +1,16 @@
 CKEDITOR.editorConfig = function( config ) {
-	config.toolbarGroups = [
+    config.toolbarGroups = [
 		{ name: 'document', groups: [ 'mode'] }, // shows the source button
 		{ name: 'pbckcode' }                     // shows the pbckcode button
 	];
 	config.extraPlugins = 'pbckcode,onchange,sourcearea';
-	config.allowedContent= 'pre[*]{*}(*)';
-	config.pbckcode = {
-		modes :  [ ['C', 'c_pp'] ],
-		theme : 'clouds',
-		highlighter : "PRETTIFY"
-	};
+    config.pbckcode = {
+        highlighter : 'PRETTIFY',
+        tab_size : '2',
+        theme : 'tomorrow_night',
+        modes :  [
+            ['Java' , 'java'],
+            ['Markdown' , 'markdown']
+        ],
+    };
 };

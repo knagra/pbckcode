@@ -5,5 +5,4 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'pbckcode' }
 	];
 	config.extraPlugins = 'pbckcode,onchange,sourcearea';
-	config.allowedContent= 'pre[*]{*}(*)';
 };

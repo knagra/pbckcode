@@ -1,7 +1,6 @@
 base_url : http://prbaron.github.io/pbckcode
 dev : false
 google_analytics_id: UA-21369110-4
-encoding : UTF-8
 site_url : http://www.pierrebaron.fr
 navigation:
 - text: HOME
@@ -16,8 +15,18 @@ subnavigation:
   url: /
 - text: Examples
   url: /examples/
+  dropdown :
+    - text: Basic example
+      url: basic/
+    - text: Options example
+      url: options/
+    - text: Full example
+      url: full/
+    - text: Custom ACE Editor sources
+      url: custom/
+      label : 1.2.3
 - text: Docs
   url: /docs/
 sass:
-    sass_dir: _sass
-    style: :compressed
+  sass_dir: _sass
+  style: :compressed

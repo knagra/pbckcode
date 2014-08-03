@@ -1,7 +1,7 @@
 /* global $*/
 
 CKEDITOR.replace('editor1', {
-    customConfig : 'config1.js'
+    customConfig : 'config-basic.js'
 });
 
 CKEDITOR.instances.editor1.on('change', function (e) {

@@ -34,7 +34,7 @@ CKEDITOR.editorConfig = function( config ) {
     // ACF protects your CKEditor instance of adding unofficial tags
     // however it strips out the pre tag of pbckcode plugin
     // add this rule to enable it, useful when you want to re edit a post
-    // Only needed on v1.2.0-
+    // Only needed on v1.1.x and v1.2.0
     config.allowedContent= 'pre[*]{*}(*)'; // add other rules here
 
     // PBCKCODE CUSTOMIZATION
@@ -54,7 +54,11 @@ CKEDITOR.editorConfig = function( config ) {
         theme : 'textmate',
 
         // Tab indentation (in spaces)
-        tab_size : '4'
+        tab_size : '4',
+
+        // the root path of ACE Editor. Useful if you want to use the plugin
+        // without any Internet connection
+        js : "http://cdn.jsdelivr.net//ace/1.1.4/noconflict/"
     };
 };
 

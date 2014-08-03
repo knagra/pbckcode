@@ -1,7 +1,7 @@
 /* global $, prettyPrint*/
 
 CKEDITOR.replace('editor1', {
-    customConfig : 'config2.js'
+    customConfig : 'config-options.js'
 });
 
 CKEDITOR.instances.editor1.on('change', function (e) {

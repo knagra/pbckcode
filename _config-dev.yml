@@ -1,7 +1,5 @@
 base_url : http://localhost:4000
-dev : false
-exclude : ['sass']
-encoding : UTF-8
+dev : true
 site_url : http://www.pierrebaron.fr
 navigation:
 - text: HOME
@@ -23,12 +21,11 @@ subnavigation:
       url: options/
     - text: Full example
       url: full/
-    - text: Custom JavaScript sources
+    - text: Custom ACE Editor sources
       url: custom/
       label : 1.2.3
 - text: Docs
   url: /docs/
 sass:
-    sass_dir: _sass
-    style: :compressed
-
+  sass_dir: _sass
+  style: :compressed

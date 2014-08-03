@@ -14,15 +14,12 @@
 <script src="{{'/js/vendor.all.js' | prepend: site.base_url}}"></script>
 <script src="{{'/js/app.js' | prepend: site.base_url}}"></script>
 
-<script src="{{'/js/ckeditor-4.3.2/ckeditor.js' | prepend: site.base_url}}"></script>
+<script src="{{'/js/ckeditor-4.4.3/ckeditor.js' | prepend: site.base_url}}"></script>
 
 {% assign prepend = '/js/highlighters'| prepend: site.base_url %}
 {% if page.highlighter %}
     <script src="{{page.highlighter | prepend:prepend}}"></script>
 {% endif %}
-<!--<script src="{{'/js/highlighters/highlightjs/highlight.pack.js' | prepend: site.base_url}}"></script>-->
-<!--<script src="{{'/js/highlighters/syntaxhighlighter/scripts/shCore.js' | prepend: site.base_url}}"></script>-->
-<!--<script src="{{'/js/highlighters/syntaxhighlighter/scripts/shBrushPhp.js' | prepend: site.base_url}}"></script>-->
 <script src="{{page.example | prepend: site.base_url}}"></script>
 
 </body>
